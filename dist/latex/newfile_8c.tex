@@ -1,0 +1,544 @@
+\hypertarget{newfile_8c}{}\section{D\+:/\+Net\+Beans\+Cpp\+Projects/\+Test\+Pyd\+Module\+Float/newfile.c File Reference}
+\label{newfile_8c}\index{D\+:/\+Net\+Beans\+Cpp\+Projects/\+Test\+Pyd\+Module\+Float/newfile.\+c@{D\+:/\+Net\+Beans\+Cpp\+Projects/\+Test\+Pyd\+Module\+Float/newfile.\+c}}
+{\ttfamily \#include \char`\"{}vm.\+h\char`\"{}}\newline
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{struct_v_m___i_n_s_t_r_u_c_t_i_o_n}{V\+M\+\_\+\+I\+N\+S\+T\+R\+U\+C\+T\+I\+ON}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{newfile_8c_ab3683c7777557e82c634055870ab74cf}{unpack754\+\_\+32}(i)~(\hyperlink{newfile_8c_a06ab819dcb8081c6dac0669552439acf}{unpack754}((i),32,8))
+\item 
+\#define \hyperlink{newfile_8c_a74cf3c6c3f16ce8b7392aa06faa0eb30}{unpack754\+\_\+64}(i)~(\hyperlink{newfile_8c_a06ab819dcb8081c6dac0669552439acf}{unpack754}((i),64,11))
+\item 
+\#define \hyperlink{newfile_8c_a48e42a5f62afe8c4921bce9e66f2c890}{N\+E\+X\+T\+OP}()~vm-\/$>$code\mbox{[}ip\mbox{]}
+\item 
+\#define \hyperlink{newfile_8c_a8ab43095a5ec990f58c1e6e0acc231cf}{N\+E\+X\+T\+A\+R\+G\+A\+S\+I4}()~(ip+=4 ,(\hyperlink{newfile_8c_ae5be1f726785414dd1b77d60df074c9d}{u4}) ( (\hyperlink{newfile_8c_ae5be1f726785414dd1b77d60df074c9d}{u4}) (vm-\/$>$ code\mbox{[}ip-\/4\mbox{]}$<$$<$24 ) $\vert$ (\hyperlink{newfile_8c_ae5be1f726785414dd1b77d60df074c9d}{u4}) ( vm-\/$>$code\mbox{[}ip-\/3\mbox{]}$<$$<$16 ) $\vert$ (\hyperlink{newfile_8c_ae5be1f726785414dd1b77d60df074c9d}{u4}) (vm-\/$>$ code\mbox{[}ip-\/2\mbox{]}$<$$<$8 ) $\vert$ (\hyperlink{newfile_8c_ae5be1f726785414dd1b77d60df074c9d}{u4}) (vm-\/$>$ code\mbox{[}ip-\/1\mbox{]} ) ) )
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef uint32\+\_\+t \hyperlink{newfile_8c_ae5be1f726785414dd1b77d60df074c9d}{u4}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+long double \hyperlink{newfile_8c_a06ab819dcb8081c6dac0669552439acf}{unpack754} (uint64\+\_\+t i, unsigned bits, unsigned expbits)
+\item 
+float \hyperlink{newfile_8c_a053b943b1485401d0990862fa6ca10a5}{call\+\_\+user} (int funcid, int argc, float $\ast$argv)
+\item 
+void \hyperlink{newfile_8c_a1215416e668cd81100fd858bbbb61bfd}{vm\+\_\+init} (\hyperlink{struct_v_m}{VM} $\ast$vm, unsigned char $\ast$code, int code\+\_\+size, int nglobals)
+\item 
+void \hyperlink{newfile_8c_ac3319c7904bff23a4f535c851a85ca8a}{vm\+\_\+free} (\hyperlink{struct_v_m}{VM} $\ast$vm)
+\item 
+\hyperlink{struct_v_m}{VM} $\ast$ \hyperlink{newfile_8c_a65166e7c2fec150ae62fbe87990f11bb}{vm\+\_\+create} (unsigned char $\ast$code, int code\+\_\+size, int nglobals)
+\item 
+float \hyperlink{newfile_8c_a5ed570aaac321478484d9e0144415efe}{vm\+\_\+exec} (\hyperlink{struct_v_m}{VM} $\ast$vm, int startip, bool trace, int return\+Print\+Op\+From\+Locals\+\_\+flag)
+\item 
+void \hyperlink{newfile_8c_a1de5c52d4400fb28ddc1af3f31282406}{vm\+\_\+print\+\_\+instr} (unsigned char $\ast$code, int ip)
+\item 
+void \hyperlink{newfile_8c_a9c7f48a6bdb2df2f75bd4b649b8e1076}{vm\+\_\+print\+\_\+stack} (float $\ast$stack, int count)
+\item 
+void \hyperlink{newfile_8c_afe378bf07fbf6681ca3ddae4a15ccf35}{vm\+\_\+print\+\_\+data} (float $\ast$globals, int count)
+\item 
+void \hyperlink{newfile_8c_ac734dab32ac8959b0df306d6f0f9e6d0}{vm\+\_\+print\+\_\+locals} (float $\ast$locals, int count)
+\item 
+Py\+M\+O\+D\+I\+N\+I\+T\+\_\+\+F\+U\+NC \hyperlink{newfile_8c_a8b77fd6c6fe702e4454fceb1a3b6a5e6}{Py\+Init\+\_\+lib\+Test\+Pyd\+Module\+Float} (void)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\mbox{\Hypertarget{newfile_8c_a8ab43095a5ec990f58c1e6e0acc231cf}\label{newfile_8c_a8ab43095a5ec990f58c1e6e0acc231cf}} 
+\index{newfile.\+c@{newfile.\+c}!N\+E\+X\+T\+A\+R\+G\+A\+S\+I4@{N\+E\+X\+T\+A\+R\+G\+A\+S\+I4}}
+\index{N\+E\+X\+T\+A\+R\+G\+A\+S\+I4@{N\+E\+X\+T\+A\+R\+G\+A\+S\+I4}!newfile.\+c@{newfile.\+c}}
+\subsubsection{\texorpdfstring{N\+E\+X\+T\+A\+R\+G\+A\+S\+I4}{NEXTARGASI4}}
+{\footnotesize\ttfamily \#define N\+E\+X\+T\+A\+R\+G\+A\+S\+I4(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~(ip+=4 ,(\hyperlink{newfile_8c_ae5be1f726785414dd1b77d60df074c9d}{u4}) ( (\hyperlink{newfile_8c_ae5be1f726785414dd1b77d60df074c9d}{u4}) (vm-\/$>$ code\mbox{[}ip-\/4\mbox{]}$<$$<$24 ) $\vert$ (\hyperlink{newfile_8c_ae5be1f726785414dd1b77d60df074c9d}{u4}) ( vm-\/$>$code\mbox{[}ip-\/3\mbox{]}$<$$<$16 ) $\vert$ (\hyperlink{newfile_8c_ae5be1f726785414dd1b77d60df074c9d}{u4}) (vm-\/$>$ code\mbox{[}ip-\/2\mbox{]}$<$$<$8 ) $\vert$ (\hyperlink{newfile_8c_ae5be1f726785414dd1b77d60df074c9d}{u4}) (vm-\/$>$ code\mbox{[}ip-\/1\mbox{]} ) ) )}
+
+\mbox{\Hypertarget{newfile_8c_a48e42a5f62afe8c4921bce9e66f2c890}\label{newfile_8c_a48e42a5f62afe8c4921bce9e66f2c890}} 
+\index{newfile.\+c@{newfile.\+c}!N\+E\+X\+T\+OP@{N\+E\+X\+T\+OP}}
+\index{N\+E\+X\+T\+OP@{N\+E\+X\+T\+OP}!newfile.\+c@{newfile.\+c}}
+\subsubsection{\texorpdfstring{N\+E\+X\+T\+OP}{NEXTOP}}
+{\footnotesize\ttfamily \#define N\+E\+X\+T\+OP(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~vm-\/$>$code\mbox{[}ip\mbox{]}}
+
+\mbox{\Hypertarget{newfile_8c_ab3683c7777557e82c634055870ab74cf}\label{newfile_8c_ab3683c7777557e82c634055870ab74cf}} 
+\index{newfile.\+c@{newfile.\+c}!unpack754\+\_\+32@{unpack754\+\_\+32}}
+\index{unpack754\+\_\+32@{unpack754\+\_\+32}!newfile.\+c@{newfile.\+c}}
+\subsubsection{\texorpdfstring{unpack754\+\_\+32}{unpack754\_32}}
+{\footnotesize\ttfamily \#define unpack754\+\_\+32(\begin{DoxyParamCaption}\item[{}]{i }\end{DoxyParamCaption})~(\hyperlink{newfile_8c_a06ab819dcb8081c6dac0669552439acf}{unpack754}((i),32,8))}
+
+Распаковать как C float \mbox{\Hypertarget{newfile_8c_a74cf3c6c3f16ce8b7392aa06faa0eb30}\label{newfile_8c_a74cf3c6c3f16ce8b7392aa06faa0eb30}} 
+\index{newfile.\+c@{newfile.\+c}!unpack754\+\_\+64@{unpack754\+\_\+64}}
+\index{unpack754\+\_\+64@{unpack754\+\_\+64}!newfile.\+c@{newfile.\+c}}
+\subsubsection{\texorpdfstring{unpack754\+\_\+64}{unpack754\_64}}
+{\footnotesize\ttfamily \#define unpack754\+\_\+64(\begin{DoxyParamCaption}\item[{}]{i }\end{DoxyParamCaption})~(\hyperlink{newfile_8c_a06ab819dcb8081c6dac0669552439acf}{unpack754}((i),64,11))}
+
+Распаковать как С double 
+
+\subsection{Typedef Documentation}
+\mbox{\Hypertarget{newfile_8c_ae5be1f726785414dd1b77d60df074c9d}\label{newfile_8c_ae5be1f726785414dd1b77d60df074c9d}} 
+\index{newfile.\+c@{newfile.\+c}!u4@{u4}}
+\index{u4@{u4}!newfile.\+c@{newfile.\+c}}
+\subsubsection{\texorpdfstring{u4}{u4}}
+{\footnotesize\ttfamily typedef uint32\+\_\+t \hyperlink{newfile_8c_ae5be1f726785414dd1b77d60df074c9d}{u4}}
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{newfile_8c_a053b943b1485401d0990862fa6ca10a5}\label{newfile_8c_a053b943b1485401d0990862fa6ca10a5}} 
+\index{newfile.\+c@{newfile.\+c}!call\+\_\+user@{call\+\_\+user}}
+\index{call\+\_\+user@{call\+\_\+user}!newfile.\+c@{newfile.\+c}}
+\subsubsection{\texorpdfstring{call\+\_\+user()}{call\_user()}}
+{\footnotesize\ttfamily float call\+\_\+user (\begin{DoxyParamCaption}\item[{int}]{funcid,  }\item[{int}]{argc,  }\item[{float $\ast$}]{argv }\end{DoxyParamCaption})}
+
+вызвать пользовательскую функцию 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em funcid} & индификатор функции \\
+\hline
+\mbox{\tt in}  & {\em argc} & количество аргументов \\
+\hline
+\mbox{\tt in}  & {\em массив} & целых аргументов \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+значение 
+\end{DoxyReturn}
+
+\begin{DoxyCode}
+59                                                    \{
+60     \textcolor{keywordtype}{float} ret = 0;
+61     \textcolor{keywordtype}{int} i;
+62 
+63     \textcolor{keywordflow}{if} (funcid == 0) \{
+64         printf(\textcolor{stringliteral}{"Called user function 0 => stop.\(\backslash\)n"});
+65         \textcolor{keywordflow}{return} ret;
+66     \}
+67     \textcolor{keywordflow}{if} (funcid == 1) \{
+68         ret = cos(argv[-1]);
+69     \}
+70     \textcolor{keywordflow}{if} (funcid == 2) \{
+71         ret = sin(argv[-1]);
+72     \}
+73     printf(\textcolor{stringliteral}{"Called user function %d with %d args:"}, funcid, argc);
+74     \textcolor{keywordflow}{for} (i = 0; i < argc; i++) \{
+75         printf(\textcolor{stringliteral}{" %f"}, argv[i]);
+76 
+77     \}
+78     printf(\textcolor{stringliteral}{"\(\backslash\)n"});
+79     \textcolor{keywordflow}{return} ret;
+80 
+81 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{newfile_8c_a8b77fd6c6fe702e4454fceb1a3b6a5e6}\label{newfile_8c_a8b77fd6c6fe702e4454fceb1a3b6a5e6}} 
+\index{newfile.\+c@{newfile.\+c}!Py\+Init\+\_\+lib\+Test\+Pyd\+Module\+Float@{Py\+Init\+\_\+lib\+Test\+Pyd\+Module\+Float}}
+\index{Py\+Init\+\_\+lib\+Test\+Pyd\+Module\+Float@{Py\+Init\+\_\+lib\+Test\+Pyd\+Module\+Float}!newfile.\+c@{newfile.\+c}}
+\subsubsection{\texorpdfstring{Py\+Init\+\_\+lib\+Test\+Pyd\+Module\+Float()}{PyInit\_libTestPydModuleFloat()}}
+{\footnotesize\ttfamily Py\+M\+O\+D\+I\+N\+I\+T\+\_\+\+F\+U\+NC Py\+Init\+\_\+lib\+Test\+Pyd\+Module\+Float (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Экспорт в python 
+\begin{DoxyCode}
+457                                                   \{
+458     \textcolor{keywordflow}{return} PyModule\_Create(&cModPyDem);
+459 
+460 
+461 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{newfile_8c_a06ab819dcb8081c6dac0669552439acf}\label{newfile_8c_a06ab819dcb8081c6dac0669552439acf}} 
+\index{newfile.\+c@{newfile.\+c}!unpack754@{unpack754}}
+\index{unpack754@{unpack754}!newfile.\+c@{newfile.\+c}}
+\subsubsection{\texorpdfstring{unpack754()}{unpack754()}}
+{\footnotesize\ttfamily long double unpack754 (\begin{DoxyParamCaption}\item[{uint64\+\_\+t}]{i,  }\item[{unsigned}]{bits,  }\item[{unsigned}]{expbits }\end{DoxyParamCaption})}
+
+Распаковать как вещественное число 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em i} & float число как целое \\
+\hline
+\mbox{\tt in}  & {\em bits} & мантисса \\
+\hline
+\mbox{\tt in}  & {\em expbits} & експонента \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+распакованное вещественное число 
+\end{DoxyReturn}
+
+\begin{DoxyCode}
+19                                                                    \{
+20     \textcolor{keywordtype}{long} \textcolor{keywordtype}{double} result;
+21     \textcolor{keywordtype}{long} \textcolor{keywordtype}{long} shift;
+22     \textcolor{keywordtype}{unsigned} bias;
+23     \textcolor{keywordtype}{unsigned} significandbits = bits - expbits - 1; \textcolor{comment}{// -1 для бита знака}
+24     \textcolor{comment}{// вычисляем биты от мантиссы,значимые биты,для 32val M\_biti=23,для}
+25     \textcolor{comment}{//64val это M\_biti=52}
+26 
+27     \textcolor{keywordflow}{if} (i == 0) \textcolor{keywordflow}{return} 0.0;
+28 
+29     \textcolor{comment}{// устанавливаем "знаковость"}
+30     result = (i & ((1LL << significandbits) - 1)); \textcolor{comment}{// маска}
+31 
+32     result /= (1LL << significandbits); \textcolor{comment}{// Конвертируем обратно во float}
+33     result += 1.0f; \textcolor{comment}{// прибавляем обратно}
+34     \textcolor{comment}{// разбираемся с экспонентой}
+35     bias = (1 << (expbits - 1)) - 1;
+36     shift = ((i >> significandbits)&((1LL << expbits) - 1)) - bias;
+37     \textcolor{keywordflow}{while} (shift > 0) \{
+38         result *= 2.0;
+39         shift--;
+40     \}
+41     \textcolor{keywordflow}{while} (shift < 0) \{
+42         result /= 2.0;
+43         shift++;
+44     \}
+45     \textcolor{comment}{// получаем результат}
+46     result *= (i >> (bits - 1))&1 ? -1.0 : 1.0;
+47 
+48     \textcolor{keywordflow}{return} result;
+49 
+50 
+51 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{newfile_8c_a65166e7c2fec150ae62fbe87990f11bb}\label{newfile_8c_a65166e7c2fec150ae62fbe87990f11bb}} 
+\index{newfile.\+c@{newfile.\+c}!vm\+\_\+create@{vm\+\_\+create}}
+\index{vm\+\_\+create@{vm\+\_\+create}!newfile.\+c@{newfile.\+c}}
+\subsubsection{\texorpdfstring{vm\+\_\+create()}{vm\_create()}}
+{\footnotesize\ttfamily \hyperlink{struct_v_m}{VM}$\ast$ vm\+\_\+create (\begin{DoxyParamCaption}\item[{unsigned char $\ast$}]{code,  }\item[{int}]{code\+\_\+size,  }\item[{int}]{nglobals }\end{DoxyParamCaption})}
+
+создать виртуальную машину 
+\begin{DoxyCode}
+136                                                                 \{
+137     \hyperlink{struct_v_m}{VM} *vm = (\hyperlink{struct_v_m}{VM}*) calloc(1, \textcolor{keyword}{sizeof} (\hyperlink{struct_v_m}{VM}));
+138     \hyperlink{newfile_8c_a1215416e668cd81100fd858bbbb61bfd}{vm\_init}(vm, code, code\_size, nglobals);
+139     \textcolor{keywordflow}{return} vm;
+140 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{newfile_8c_a5ed570aaac321478484d9e0144415efe}\label{newfile_8c_a5ed570aaac321478484d9e0144415efe}} 
+\index{newfile.\+c@{newfile.\+c}!vm\+\_\+exec@{vm\+\_\+exec}}
+\index{vm\+\_\+exec@{vm\+\_\+exec}!newfile.\+c@{newfile.\+c}}
+\subsubsection{\texorpdfstring{vm\+\_\+exec()}{vm\_exec()}}
+{\footnotesize\ttfamily float vm\+\_\+exec (\begin{DoxyParamCaption}\item[{\hyperlink{struct_v_m}{VM} $\ast$}]{vm,  }\item[{int}]{startip,  }\item[{bool}]{trace,  }\item[{int}]{return\+Print\+Op\+From\+Locals\+\_\+flag }\end{DoxyParamCaption})}
+
+Выпоолняе байт-\/коды 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em vm} & экземпляр Vm \\
+\hline
+\mbox{\tt in}  & {\em startip} & с какого байта выполнять опкоды \\
+\hline
+\mbox{\tt in}  & {\em trace} & если трассировка? \\
+\hline
+\mbox{\tt in}  & {\em number\+From\+Locals\+As\+Par} & использовать ли число из локальных переменных \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+число из локальных переменных 
+\end{DoxyReturn}
+следующая операция
+
+следующий аргумент как \textquotesingle{}собирание\textquotesingle{} 4х байтов
+\begin{DoxyCode}
+151                                                                                  \{
+152 
+153 
+154     \textcolor{keywordtype}{int} ip;
+155     \textcolor{keywordtype}{int} sp;
+156     \textcolor{keywordtype}{int} callsp;
+157 
+158     \textcolor{keywordtype}{float} a = 0;
+159     \textcolor{keywordtype}{float} b = 0;
+160     \textcolor{keywordtype}{int} addr = 0;
+161     \textcolor{keywordtype}{int} offset = 0;
+162 
+163     ip = startip;
+164     sp = -1;
+165     callsp = -1;
+169 \textcolor{preprocessor}{#define NEXTOP() vm->code[ip] }
+170 
+173 \textcolor{preprocessor}{#define NEXTARGASI4() (ip+=4 ,(u4) ( (u4) (vm-> code[ip-4]<<24 ) | (u4) ( vm->code[ip-3]<<16 ) | (u4) (vm->
+       code[ip-2]<<8 ) | (u4) (vm-> code[ip-1] ) ) )}
+174     \hyperlink{newfile_8c_ae5be1f726785414dd1b77d60df074c9d}{u4} opcode = vm->\hyperlink{struct_v_m_a760a936633eb5c7b8de120b5d78f9ba6}{code}[ip];
+175     \textcolor{keywordflow}{while} (opcode != \hyperlink{vm_8h_a901daed590dadc5d2f77ad3336665207aa2fd6bbb0c07e28e835ba595e64df78c}{HALT}) \{
+176         \textcolor{keywordflow}{if} (trace) \{
+177             \hyperlink{newfile_8c_a1de5c52d4400fb28ddc1af3f31282406}{vm\_print\_instr}(vm->\hyperlink{struct_v_m_a760a936633eb5c7b8de120b5d78f9ba6}{code}, ip);
+178 
+179         \}
+180         ip++;
+181         \textcolor{keywordflow}{switch} (opcode) \{
+182             \textcolor{keywordflow}{case} \hyperlink{vm_8h_a901daed590dadc5d2f77ad3336665207a7316843e88740cd819c6427a7f833df6}{NOOP}:
+183                 \textcolor{keywordflow}{break};
+184             \textcolor{keywordflow}{case} \hyperlink{vm_8h_a901daed590dadc5d2f77ad3336665207ab907ed61005f5c66af7ff32c95209dce}{IADD}:
+185                 b = vm->\hyperlink{struct_v_m_a1ff291de0c5c28fa61abf17fa9a90fcd}{stack}[sp--]; 
+186                 a = vm->\hyperlink{struct_v_m_a1ff291de0c5c28fa61abf17fa9a90fcd}{stack}[sp--]; 
+187                 vm->\hyperlink{struct_v_m_a1ff291de0c5c28fa61abf17fa9a90fcd}{stack}[++sp] = a + b; 
+188                 \textcolor{keywordflow}{break};
+189             \textcolor{keywordflow}{case} \hyperlink{vm_8h_a901daed590dadc5d2f77ad3336665207aeef80632dcb15b29fda61f3c9d3f633a}{ISUB}:
+190                 b = vm->\hyperlink{struct_v_m_a1ff291de0c5c28fa61abf17fa9a90fcd}{stack}[sp--];
+191                 a = vm->\hyperlink{struct_v_m_a1ff291de0c5c28fa61abf17fa9a90fcd}{stack}[sp--];
+192                 vm->\hyperlink{struct_v_m_a1ff291de0c5c28fa61abf17fa9a90fcd}{stack}[++sp] = a - b;
+193                 \textcolor{keywordflow}{break};
+194             \textcolor{keywordflow}{case} \hyperlink{vm_8h_a901daed590dadc5d2f77ad3336665207aa53e6d74599ea736cd470707935d49b6}{IMUL}:
+195                 b = vm->\hyperlink{struct_v_m_a1ff291de0c5c28fa61abf17fa9a90fcd}{stack}[sp--];
+196                 a = vm->\hyperlink{struct_v_m_a1ff291de0c5c28fa61abf17fa9a90fcd}{stack}[sp--];
+197                 vm->\hyperlink{struct_v_m_a1ff291de0c5c28fa61abf17fa9a90fcd}{stack}[++sp] = a * b;
+198                 \textcolor{keywordflow}{break};
+199             \textcolor{keywordflow}{case} \hyperlink{vm_8h_a901daed590dadc5d2f77ad3336665207afc965839a7f67e65542c70f2f26356c4}{IDIV}:
+200                 b = vm->\hyperlink{struct_v_m_a1ff291de0c5c28fa61abf17fa9a90fcd}{stack}[sp--];
+201                 a = vm->\hyperlink{struct_v_m_a1ff291de0c5c28fa61abf17fa9a90fcd}{stack}[sp--];
+202                 vm->\hyperlink{struct_v_m_a1ff291de0c5c28fa61abf17fa9a90fcd}{stack}[++sp] = a / b;
+203                 \textcolor{keywordflow}{break};
+204 
+205             \textcolor{keywordflow}{case} \hyperlink{vm_8h_a901daed590dadc5d2f77ad3336665207aeaf84155c5ee85156b0e564ae068044d}{IREM}:
+206                 b =  vm->\hyperlink{struct_v_m_a1ff291de0c5c28fa61abf17fa9a90fcd}{stack}[sp--];
+207                 a =  vm->\hyperlink{struct_v_m_a1ff291de0c5c28fa61abf17fa9a90fcd}{stack}[sp--];
+208                 vm->\hyperlink{struct_v_m_a1ff291de0c5c28fa61abf17fa9a90fcd}{stack}[++sp] =(int) a % (\textcolor{keywordtype}{int})b;
+209                 \textcolor{keywordflow}{break};
+210 
+211             \textcolor{keywordflow}{case} \hyperlink{vm_8h_a901daed590dadc5d2f77ad3336665207a88520dc2e9422ff30499f8f19f8d5404}{IPOW}:
+212                 b = vm->\hyperlink{struct_v_m_a1ff291de0c5c28fa61abf17fa9a90fcd}{stack}[sp--];
+213                 a = vm->\hyperlink{struct_v_m_a1ff291de0c5c28fa61abf17fa9a90fcd}{stack}[sp--];
+214                 vm->\hyperlink{struct_v_m_a1ff291de0c5c28fa61abf17fa9a90fcd}{stack}[++sp] = pow(a, b);
+215                 \textcolor{keywordflow}{break};
+216             \textcolor{keywordflow}{case} \hyperlink{vm_8h_a901daed590dadc5d2f77ad3336665207aff3cfb7eac766198755009e0eb52fe02}{ILT}:
+217                 b = vm->\hyperlink{struct_v_m_a1ff291de0c5c28fa61abf17fa9a90fcd}{stack}[sp--];
+218                 a = vm->\hyperlink{struct_v_m_a1ff291de0c5c28fa61abf17fa9a90fcd}{stack}[sp--];
+219                 vm->\hyperlink{struct_v_m_a1ff291de0c5c28fa61abf17fa9a90fcd}{stack}[++sp] = (a < b) ? \textcolor{keyword}{true} : \textcolor{keyword}{false};
+220                 \textcolor{keywordflow}{break};
+221             \textcolor{keywordflow}{case} \hyperlink{vm_8h_a901daed590dadc5d2f77ad3336665207af22c1b7b1f18d4bb77441bb2054efe1d}{IEQ}:
+222                 b = vm->\hyperlink{struct_v_m_a1ff291de0c5c28fa61abf17fa9a90fcd}{stack}[sp--];
+223                 a = vm->\hyperlink{struct_v_m_a1ff291de0c5c28fa61abf17fa9a90fcd}{stack}[sp--];
+224                 vm->\hyperlink{struct_v_m_a1ff291de0c5c28fa61abf17fa9a90fcd}{stack}[++sp] = (a == b) ? \textcolor{keyword}{true} : \textcolor{keyword}{false};
+225                 \textcolor{keywordflow}{break};
+226             \textcolor{keywordflow}{case} \hyperlink{vm_8h_a901daed590dadc5d2f77ad3336665207a60a57eed407e7df8eb3bf49f61a042c1}{BR}:
+227                 ip = vm->\hyperlink{struct_v_m_a760a936633eb5c7b8de120b5d78f9ba6}{code}[ip];
+228                 \textcolor{keywordflow}{break};
+229             \textcolor{keywordflow}{case} \hyperlink{vm_8h_a901daed590dadc5d2f77ad3336665207a00033d842067ea248fab56d7e9a45647}{BRT}:
+230                 addr = vm->\hyperlink{struct_v_m_a760a936633eb5c7b8de120b5d78f9ba6}{code}[ip++];
+231                 \textcolor{keywordflow}{if} (vm->\hyperlink{struct_v_m_a1ff291de0c5c28fa61abf17fa9a90fcd}{stack}[sp--] == \textcolor{keyword}{true}) ip = addr;
+232                 \textcolor{keywordflow}{break};
+233             \textcolor{keywordflow}{case} \hyperlink{vm_8h_a901daed590dadc5d2f77ad3336665207a526e45947d6f88da64c9ba9737fdd2cb}{BRF}:
+234                 addr = vm->\hyperlink{struct_v_m_a760a936633eb5c7b8de120b5d78f9ba6}{code}[ip++];
+235                 \textcolor{keywordflow}{if} (vm->\hyperlink{struct_v_m_a1ff291de0c5c28fa61abf17fa9a90fcd}{stack}[sp--] == \textcolor{keyword}{false}) ip = addr;
+236                 \textcolor{keywordflow}{break};
+237             \textcolor{keywordflow}{case} \hyperlink{vm_8h_a901daed590dadc5d2f77ad3336665207a798709cadfb2ac435ffee62ce364f752}{ICONST}:
+238                 vm->\hyperlink{struct_v_m_a1ff291de0c5c28fa61abf17fa9a90fcd}{stack}[++sp] = \hyperlink{newfile_8c_ab3683c7777557e82c634055870ab74cf}{unpack754\_32}(\hyperlink{newfile_8c_a8ab43095a5ec990f58c1e6e0acc231cf}{NEXTARGASI4}());
+239                 \textcolor{keywordflow}{break};
+240             \textcolor{keywordflow}{case} \hyperlink{vm_8h_a901daed590dadc5d2f77ad3336665207a972dbcdf74cff71e20bdcfb53be9c391}{LOAD}:
+241                 offset = vm->\hyperlink{struct_v_m_a760a936633eb5c7b8de120b5d78f9ba6}{code}[ip++];
+242                 vm->\hyperlink{struct_v_m_a1ff291de0c5c28fa61abf17fa9a90fcd}{stack}[++sp] = vm->\hyperlink{struct_v_m_ac4bacd79fc85e6a75477292f2dfd3707}{call\_stack}[callsp].\hyperlink{struct_context_aa64dab3c13a109ad402cd112066943ee}{locals}[offset];
+243                 \textcolor{keywordflow}{break};
+244             \textcolor{keywordflow}{case} \hyperlink{vm_8h_a901daed590dadc5d2f77ad3336665207a148a46f4070d49b5999d2308ab9a0216}{GLOAD}:
+245                 addr = vm->\hyperlink{struct_v_m_a760a936633eb5c7b8de120b5d78f9ba6}{code}[ip++];
+246                 vm->\hyperlink{struct_v_m_a1ff291de0c5c28fa61abf17fa9a90fcd}{stack}[++sp] = vm->\hyperlink{struct_v_m_ab913bee0d5cd7b6b11a1ae4db7f5b576}{globals}[addr];
+247                 \textcolor{keywordflow}{break};
+248             \textcolor{keywordflow}{case} \hyperlink{vm_8h_a901daed590dadc5d2f77ad3336665207afeb01cb4572ba190cd7932e49446c480}{STORE}:
+249                 offset = vm->\hyperlink{struct_v_m_a760a936633eb5c7b8de120b5d78f9ba6}{code}[ip++];
+250                 vm->\hyperlink{struct_v_m_ac4bacd79fc85e6a75477292f2dfd3707}{call\_stack}[callsp].\hyperlink{struct_context_aa64dab3c13a109ad402cd112066943ee}{locals}[offset] = vm->
+      \hyperlink{struct_v_m_a1ff291de0c5c28fa61abf17fa9a90fcd}{stack}[sp--];
+251                 \textcolor{keywordflow}{break};
+252             \textcolor{keywordflow}{case} \hyperlink{vm_8h_a901daed590dadc5d2f77ad3336665207a929494860edb3b1253dd0b4959939e77}{GSTORE}:
+253                 addr = vm->\hyperlink{struct_v_m_a760a936633eb5c7b8de120b5d78f9ba6}{code}[ip++];
+254                 vm->\hyperlink{struct_v_m_ab913bee0d5cd7b6b11a1ae4db7f5b576}{globals}[addr] = vm->\hyperlink{struct_v_m_a1ff291de0c5c28fa61abf17fa9a90fcd}{stack}[sp--];
+255                 \textcolor{keywordflow}{break};
+256             \textcolor{keywordflow}{case} \hyperlink{vm_8h_a901daed590dadc5d2f77ad3336665207ab107229d44d042caa8ab8df4c8acaa1f}{PRINT}:
+257             \{
+258                 \textcolor{keywordtype}{int} numberFromLocalsAsPar = vm->\hyperlink{struct_v_m_a760a936633eb5c7b8de120b5d78f9ba6}{code}[ip++];
+259                 \textcolor{keywordtype}{float} numberFromLocals = vm->\hyperlink{struct_v_m_ac4bacd79fc85e6a75477292f2dfd3707}{call\_stack}[callsp].\hyperlink{struct_context_aa64dab3c13a109ad402cd112066943ee}{locals}[
+      numberFromLocalsAsPar];
+260                 printf(\textcolor{stringliteral}{"print: %f\(\backslash\)n"}, numberFromLocals);
+261                 \textcolor{keywordflow}{if} (returnPrintOpFromLocals\_flag) \{
+262                     \textcolor{keywordflow}{return} numberFromLocals;
+263                 \}
+264 
+265                 \textcolor{keywordflow}{break};
+266             \}
+267             \textcolor{keywordflow}{case} \hyperlink{vm_8h_a901daed590dadc5d2f77ad3336665207a061dcf4785583d8653942f2d252174fa}{POP}:
+268                 --sp;
+269                 \textcolor{keywordflow}{break};
+270             \textcolor{keywordflow}{case} 25 ... 25 + 15:
+271             \{
+272                 \textcolor{keywordtype}{int} argc = (int) vm->\hyperlink{struct_v_m_a1ff291de0c5c28fa61abf17fa9a90fcd}{stack}[sp--];
+273                 \textcolor{keywordtype}{float} argv[argc];
+274                 for (\textcolor{keywordtype}{int} i = 0; i < argc; i++) \{
+275                     argv[i] = vm->\hyperlink{struct_v_m_a1ff291de0c5c28fa61abf17fa9a90fcd}{stack}[sp--];
+276 
+277                 \}
+278                 a = \hyperlink{newfile_8c_a053b943b1485401d0990862fa6ca10a5}{call\_user}(opcode - 25, argc, argv);
+279                 \textcolor{keywordflow}{if} (argc != 0) \{
+280                     vm->\hyperlink{struct_v_m_af2f5a8140e32988b2e1c20cc4f913b2e}{float\_registrThatRetFunc} = a;
+281 
+282                 \}
+283 
+284 
+285 
+286                 \textcolor{keywordflow}{break};
+287 
+288             \}
+289             \textcolor{keywordflow}{case} \hyperlink{vm_8h_a901daed590dadc5d2f77ad3336665207abd0ebc08c262bab82a1882256d2d66e8}{CALL}:
+290             \{
+291 
+292                 addr = vm->\hyperlink{struct_v_m_a760a936633eb5c7b8de120b5d78f9ba6}{code}[ip++];
+293                 \textcolor{keywordtype}{int} nargs = vm->\hyperlink{struct_v_m_a760a936633eb5c7b8de120b5d78f9ba6}{code}[ip++];
+294                 \textcolor{keywordtype}{int} I\_firstarg = sp - nargs + 1;
+295                 ++callsp;
+296 
+297                 vm\_context\_init(&vm->\hyperlink{struct_v_m_ac4bacd79fc85e6a75477292f2dfd3707}{call\_stack}[callsp], ip, 26);
+298 
+299                 \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < nargs; i++) \{
+300                     vm->\hyperlink{struct_v_m_ac4bacd79fc85e6a75477292f2dfd3707}{call\_stack}[callsp].\hyperlink{struct_context_aa64dab3c13a109ad402cd112066943ee}{locals}[i] = vm->\hyperlink{struct_v_m_a1ff291de0c5c28fa61abf17fa9a90fcd}{stack}[I\_firstarg + i];
+301                 \}
+302                 sp -= nargs;
+303                 ip = addr;
+304                 \textcolor{keywordflow}{break};
+305             \}
+306             \textcolor{keywordflow}{case} \hyperlink{vm_8h_a901daed590dadc5d2f77ad3336665207ab2510768eaba5e52ba71678e19a65464}{RET}:
+307             \{
+308                 ip = vm->\hyperlink{struct_v_m_ac4bacd79fc85e6a75477292f2dfd3707}{call\_stack}[callsp].\hyperlink{struct_context_a5459e2352d9678161c460b618fcc02c8}{returnip};
+309                 callsp--;
+310                 \textcolor{keywordflow}{break};
+311             \}
+312             \textcolor{keywordflow}{case} \hyperlink{vm_8h_a901daed590dadc5d2f77ad3336665207ae589f17d2e03e1aefb9dc11806e059ea}{STORE\_RESULT}:
+313             \{
+314                 \textcolor{keywordtype}{int} int\_locNum = vm->\hyperlink{struct_v_m_a760a936633eb5c7b8de120b5d78f9ba6}{code}[ip++];
+315                 vm->\hyperlink{struct_v_m_af2f5a8140e32988b2e1c20cc4f913b2e}{float\_registrThatRetFunc} = vm->
+      \hyperlink{struct_v_m_ac4bacd79fc85e6a75477292f2dfd3707}{call\_stack}[callsp].\hyperlink{struct_context_aa64dab3c13a109ad402cd112066943ee}{locals}[int\_locNum];
+316                 \textcolor{keywordflow}{break};
+317             \}
+318             \textcolor{keywordflow}{case} \hyperlink{vm_8h_a901daed590dadc5d2f77ad3336665207a3c04953e29a9348808068d5214be67ad}{LOAD\_RESULT}:
+319             \{
+320                 vm->\hyperlink{struct_v_m_a1ff291de0c5c28fa61abf17fa9a90fcd}{stack}[++sp] = vm->\hyperlink{struct_v_m_af2f5a8140e32988b2e1c20cc4f913b2e}{float\_registrThatRetFunc};
+321                 \textcolor{keywordflow}{break};
+322             \}
+323 
+324             \textcolor{keywordflow}{default}:
+325             \{
+326                 printf(\textcolor{stringliteral}{"invalid opcode: %d at ip=%d\(\backslash\)n"}, opcode, (ip - 1));
+327                 exit(1);
+328             \}
+329 
+330         \}
+331 
+332         \textcolor{keywordflow}{if} (trace) \hyperlink{newfile_8c_a9c7f48a6bdb2df2f75bd4b649b8e1076}{vm\_print\_stack}(vm->\hyperlink{struct_v_m_a1ff291de0c5c28fa61abf17fa9a90fcd}{stack}, sp);
+333         opcode = vm->\hyperlink{struct_v_m_a760a936633eb5c7b8de120b5d78f9ba6}{code}[ip];
+334 
+335 
+336 
+337     \}
+338     \textcolor{keywordflow}{if} (trace) \{
+339         \hyperlink{newfile_8c_afe378bf07fbf6681ca3ddae4a15ccf35}{vm\_print\_data}(vm->\hyperlink{struct_v_m_ab913bee0d5cd7b6b11a1ae4db7f5b576}{globals}, vm->\hyperlink{struct_v_m_a68946a4843ec05f3c865d177fa982dbe}{nglobals});
+340     \}
+341 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{newfile_8c_ac3319c7904bff23a4f535c851a85ca8a}\label{newfile_8c_ac3319c7904bff23a4f535c851a85ca8a}} 
+\index{newfile.\+c@{newfile.\+c}!vm\+\_\+free@{vm\+\_\+free}}
+\index{vm\+\_\+free@{vm\+\_\+free}!newfile.\+c@{newfile.\+c}}
+\subsubsection{\texorpdfstring{vm\+\_\+free()}{vm\_free()}}
+{\footnotesize\ttfamily void vm\+\_\+free (\begin{DoxyParamCaption}\item[{\hyperlink{struct_v_m}{VM} $\ast$}]{vm }\end{DoxyParamCaption})}
+
+освободить память из под виртуальной машины 
+\begin{DoxyCode}
+131                      \{
+132     free(vm->\hyperlink{struct_v_m_ab913bee0d5cd7b6b11a1ae4db7f5b576}{globals});
+133     free(vm);
+134 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{newfile_8c_a1215416e668cd81100fd858bbbb61bfd}\label{newfile_8c_a1215416e668cd81100fd858bbbb61bfd}} 
+\index{newfile.\+c@{newfile.\+c}!vm\+\_\+init@{vm\+\_\+init}}
+\index{vm\+\_\+init@{vm\+\_\+init}!newfile.\+c@{newfile.\+c}}
+\subsubsection{\texorpdfstring{vm\+\_\+init()}{vm\_init()}}
+{\footnotesize\ttfamily void vm\+\_\+init (\begin{DoxyParamCaption}\item[{\hyperlink{struct_v_m}{VM} $\ast$}]{vm,  }\item[{unsigned char $\ast$}]{code,  }\item[{int}]{code\+\_\+size,  }\item[{int}]{nglobals }\end{DoxyParamCaption})}
+
+инициализируем виртуальную машину 
+\begin{DoxyCode}
+124                                                                        \{
+125     vm->\hyperlink{struct_v_m_a760a936633eb5c7b8de120b5d78f9ba6}{code} = code;
+126     vm->\hyperlink{struct_v_m_aa5f1f79d48c3a3512a232000f3eb4c26}{code\_size} = code\_size;
+127     vm->\hyperlink{struct_v_m_ab913bee0d5cd7b6b11a1ae4db7f5b576}{globals} = (\textcolor{keywordtype}{int}*) calloc(nglobals, \textcolor{keyword}{sizeof} (\textcolor{keywordtype}{int}));
+128     vm->\hyperlink{struct_v_m_a68946a4843ec05f3c865d177fa982dbe}{nglobals} = nglobals;
+129 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{newfile_8c_afe378bf07fbf6681ca3ddae4a15ccf35}\label{newfile_8c_afe378bf07fbf6681ca3ddae4a15ccf35}} 
+\index{newfile.\+c@{newfile.\+c}!vm\+\_\+print\+\_\+data@{vm\+\_\+print\+\_\+data}}
+\index{vm\+\_\+print\+\_\+data@{vm\+\_\+print\+\_\+data}!newfile.\+c@{newfile.\+c}}
+\subsubsection{\texorpdfstring{vm\+\_\+print\+\_\+data()}{vm\_print\_data()}}
+{\footnotesize\ttfamily void vm\+\_\+print\+\_\+data (\begin{DoxyParamCaption}\item[{float $\ast$}]{globals,  }\item[{int}]{count }\end{DoxyParamCaption})}
+
+печатаем глобальные переменные 
+\begin{DoxyCode}
+387                                               \{
+388     printf(\textcolor{stringliteral}{"Data memory:\(\backslash\)n"});
+389     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < count; i++) \{
+390 
+391         printf(\textcolor{stringliteral}{"%04d: %f\(\backslash\)n"}, i, globals[i]);
+392     \}
+393 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{newfile_8c_a1de5c52d4400fb28ddc1af3f31282406}\label{newfile_8c_a1de5c52d4400fb28ddc1af3f31282406}} 
+\index{newfile.\+c@{newfile.\+c}!vm\+\_\+print\+\_\+instr@{vm\+\_\+print\+\_\+instr}}
+\index{vm\+\_\+print\+\_\+instr@{vm\+\_\+print\+\_\+instr}!newfile.\+c@{newfile.\+c}}
+\subsubsection{\texorpdfstring{vm\+\_\+print\+\_\+instr()}{vm\_print\_instr()}}
+{\footnotesize\ttfamily void vm\+\_\+print\+\_\+instr (\begin{DoxyParamCaption}\item[{unsigned char $\ast$}]{code,  }\item[{int}]{ip }\end{DoxyParamCaption})}
+
+печатаем инструкцию 
+\begin{DoxyCode}
+350                                                  \{
+351 
+352     \textcolor{keywordtype}{int} opcode = code[ip];
+353     \hyperlink{struct_v_m___i_n_s_t_r_u_c_t_i_o_n}{VM\_INSTRUCTION} *inst = &vm\_instructions[opcode];
+354     \textcolor{keywordflow}{switch} (inst->\hyperlink{struct_v_m___i_n_s_t_r_u_c_t_i_o_n_a4d4cf909e9288d25c75b7ce1eae49e17}{nargs}) \{
+355         \textcolor{keywordflow}{case} 0:
+356             printf(\textcolor{stringliteral}{"%04d:  %-20s"}, ip, inst->\hyperlink{struct_v_m___i_n_s_t_r_u_c_t_i_o_n_a7ba2d8dca2db13e7afb5cc2985bcd1d8}{name});
+357             \textcolor{keywordflow}{break};
+358         \textcolor{keywordflow}{case} 1:
+359             \textcolor{keywordflow}{if} (opcode == \hyperlink{vm_8h_a901daed590dadc5d2f77ad3336665207a798709cadfb2ac435ffee62ce364f752}{ICONST}) \{
+360 
+361                 printf(\textcolor{stringliteral}{"%04d: ICONST %f"}, ip, (\textcolor{keywordtype}{float}) \hyperlink{newfile_8c_ab3683c7777557e82c634055870ab74cf}{unpack754\_32}((
+      \hyperlink{newfile_8c_ae5be1f726785414dd1b77d60df074c9d}{u4}) (code[ip + 1 ] << 24) | (\hyperlink{newfile_8c_ae5be1f726785414dd1b77d60df074c9d}{u4}) (code[ip + 2] << 16) | (\hyperlink{newfile_8c_ae5be1f726785414dd1b77d60df074c9d}{u4}) (code[ip + 3] << 8) | (
+      \hyperlink{newfile_8c_ae5be1f726785414dd1b77d60df074c9d}{u4}) (code[ip + 4])));
+362             \} \textcolor{keywordflow}{else} \{
+363                 printf(\textcolor{stringliteral}{"%04d:  %-10s%-10d"}, ip, inst->\hyperlink{struct_v_m___i_n_s_t_r_u_c_t_i_o_n_a7ba2d8dca2db13e7afb5cc2985bcd1d8}{name}, code[ip + 1]);
+364             \}
+365 
+366 
+367             \textcolor{keywordflow}{break};
+368         \textcolor{keywordflow}{case} 2:
+369             printf(\textcolor{stringliteral}{"%04d:  %-10s%d,%10d"}, ip, inst->\hyperlink{struct_v_m___i_n_s_t_r_u_c_t_i_o_n_a7ba2d8dca2db13e7afb5cc2985bcd1d8}{name}, code[ip + 1], code[ip + 2]);
+370             \textcolor{keywordflow}{break};
+371         \textcolor{keywordflow}{case} 3:
+372             printf(\textcolor{stringliteral}{"%04d:  %-10s%d,%d,%-6d"}, ip, inst->\hyperlink{struct_v_m___i_n_s_t_r_u_c_t_i_o_n_a7ba2d8dca2db13e7afb5cc2985bcd1d8}{name}, code[ip + 1], code[ip + 2], code[ip + 3]);
+373 
+374             \textcolor{keywordflow}{break};
+375     \}
+376 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{newfile_8c_ac734dab32ac8959b0df306d6f0f9e6d0}\label{newfile_8c_ac734dab32ac8959b0df306d6f0f9e6d0}} 
+\index{newfile.\+c@{newfile.\+c}!vm\+\_\+print\+\_\+locals@{vm\+\_\+print\+\_\+locals}}
+\index{vm\+\_\+print\+\_\+locals@{vm\+\_\+print\+\_\+locals}!newfile.\+c@{newfile.\+c}}
+\subsubsection{\texorpdfstring{vm\+\_\+print\+\_\+locals()}{vm\_print\_locals()}}
+{\footnotesize\ttfamily void vm\+\_\+print\+\_\+locals (\begin{DoxyParamCaption}\item[{float $\ast$}]{locals,  }\item[{int}]{count }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}
+395                                                \{
+396     printf(\textcolor{stringliteral}{"Locals memory:\(\backslash\)n"});
+397     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < count; i++) \{
+398 
+399         printf(\textcolor{stringliteral}{"%04d: %f\(\backslash\)n"}, i, locals[i]);
+400     \}
+401 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{newfile_8c_a9c7f48a6bdb2df2f75bd4b649b8e1076}\label{newfile_8c_a9c7f48a6bdb2df2f75bd4b649b8e1076}} 
+\index{newfile.\+c@{newfile.\+c}!vm\+\_\+print\+\_\+stack@{vm\+\_\+print\+\_\+stack}}
+\index{vm\+\_\+print\+\_\+stack@{vm\+\_\+print\+\_\+stack}!newfile.\+c@{newfile.\+c}}
+\subsubsection{\texorpdfstring{vm\+\_\+print\+\_\+stack()}{vm\_print\_stack()}}
+{\footnotesize\ttfamily void vm\+\_\+print\+\_\+stack (\begin{DoxyParamCaption}\item[{float $\ast$}]{stack,  }\item[{int}]{count }\end{DoxyParamCaption})}
+
+печатаем стек 
+\begin{DoxyCode}
+378                                              \{
+379     printf(\textcolor{stringliteral}{"stack=["});
+380     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i <= count; i++) \{
+381 
+382         printf(\textcolor{stringliteral}{" %f"}, stack[i]);
+383     \}
+384     printf(\textcolor{stringliteral}{" ]\(\backslash\)n"});
+385 \}
+\end{DoxyCode}

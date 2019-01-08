@@ -1,0 +1,76 @@
+\hypertarget{struct_v_m}{}\section{VM Struct Reference}
+\label{struct_v_m}\index{VM@{VM}}
+
+
+{\ttfamily \#include $<$vm.\+h$>$}
+
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+unsigned char $\ast$ \hyperlink{struct_v_m_a760a936633eb5c7b8de120b5d78f9ba6}{code}
+\item 
+int \hyperlink{struct_v_m_aa5f1f79d48c3a3512a232000f3eb4c26}{code\+\_\+size}
+\item 
+float $\ast$ \hyperlink{struct_v_m_ab913bee0d5cd7b6b11a1ae4db7f5b576}{globals}
+\item 
+int \hyperlink{struct_v_m_a68946a4843ec05f3c865d177fa982dbe}{nglobals}
+\item 
+float \hyperlink{struct_v_m_a1ff291de0c5c28fa61abf17fa9a90fcd}{stack} \mbox{[}\hyperlink{vm_8h_a87dcbc4991a2a2fc4eb6fc6a24449f26}{D\+E\+F\+A\+U\+L\+T\+\_\+\+S\+T\+A\+C\+K\+\_\+\+S\+I\+ZE}\mbox{]}
+\item 
+float \hyperlink{struct_v_m_af2f5a8140e32988b2e1c20cc4f913b2e}{float\+\_\+registr\+That\+Ret\+Func}
+\item 
+\hyperlink{struct_context}{Context} \hyperlink{struct_v_m_ac4bacd79fc85e6a75477292f2dfd3707}{call\+\_\+stack} \mbox{[}\hyperlink{vm_8h_a8b344ec0cbf964588d894f826d85fc28}{D\+E\+F\+A\+U\+L\+T\+\_\+\+C\+A\+L\+L\+\_\+\+S\+T\+A\+C\+K\+\_\+\+S\+I\+ZE}\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Компонент виртуальной машины 
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{struct_v_m_ac4bacd79fc85e6a75477292f2dfd3707}\label{struct_v_m_ac4bacd79fc85e6a75477292f2dfd3707}} 
+\index{VM@{VM}!call\+\_\+stack@{call\+\_\+stack}}
+\index{call\+\_\+stack@{call\+\_\+stack}!VM@{VM}}
+\subsubsection{\texorpdfstring{call\+\_\+stack}{call\_stack}}
+{\footnotesize\ttfamily \hyperlink{struct_context}{Context} V\+M\+::call\+\_\+stack\mbox{[}\hyperlink{vm_8h_a8b344ec0cbf964588d894f826d85fc28}{D\+E\+F\+A\+U\+L\+T\+\_\+\+C\+A\+L\+L\+\_\+\+S\+T\+A\+C\+K\+\_\+\+S\+I\+ZE}\mbox{]}}
+
+стек контекстов \mbox{\Hypertarget{struct_v_m_a760a936633eb5c7b8de120b5d78f9ba6}\label{struct_v_m_a760a936633eb5c7b8de120b5d78f9ba6}} 
+\index{VM@{VM}!code@{code}}
+\index{code@{code}!VM@{VM}}
+\subsubsection{\texorpdfstring{code}{code}}
+{\footnotesize\ttfamily unsigned char$\ast$ V\+M\+::code}
+
+байт код \mbox{\Hypertarget{struct_v_m_aa5f1f79d48c3a3512a232000f3eb4c26}\label{struct_v_m_aa5f1f79d48c3a3512a232000f3eb4c26}} 
+\index{VM@{VM}!code\+\_\+size@{code\+\_\+size}}
+\index{code\+\_\+size@{code\+\_\+size}!VM@{VM}}
+\subsubsection{\texorpdfstring{code\+\_\+size}{code\_size}}
+{\footnotesize\ttfamily int V\+M\+::code\+\_\+size}
+
+размер байт кода \mbox{\Hypertarget{struct_v_m_af2f5a8140e32988b2e1c20cc4f913b2e}\label{struct_v_m_af2f5a8140e32988b2e1c20cc4f913b2e}} 
+\index{VM@{VM}!float\+\_\+registr\+That\+Ret\+Func@{float\+\_\+registr\+That\+Ret\+Func}}
+\index{float\+\_\+registr\+That\+Ret\+Func@{float\+\_\+registr\+That\+Ret\+Func}!VM@{VM}}
+\subsubsection{\texorpdfstring{float\+\_\+registr\+That\+Ret\+Func}{float\_registrThatRetFunc}}
+{\footnotesize\ttfamily float V\+M\+::float\+\_\+registr\+That\+Ret\+Func}
+
+регистр для значения от функции \mbox{\Hypertarget{struct_v_m_ab913bee0d5cd7b6b11a1ae4db7f5b576}\label{struct_v_m_ab913bee0d5cd7b6b11a1ae4db7f5b576}} 
+\index{VM@{VM}!globals@{globals}}
+\index{globals@{globals}!VM@{VM}}
+\subsubsection{\texorpdfstring{globals}{globals}}
+{\footnotesize\ttfamily float$\ast$ V\+M\+::globals}
+
+глобалные переменные \mbox{\Hypertarget{struct_v_m_a68946a4843ec05f3c865d177fa982dbe}\label{struct_v_m_a68946a4843ec05f3c865d177fa982dbe}} 
+\index{VM@{VM}!nglobals@{nglobals}}
+\index{nglobals@{nglobals}!VM@{VM}}
+\subsubsection{\texorpdfstring{nglobals}{nglobals}}
+{\footnotesize\ttfamily int V\+M\+::nglobals}
+
+количество глобальных переменных \mbox{\Hypertarget{struct_v_m_a1ff291de0c5c28fa61abf17fa9a90fcd}\label{struct_v_m_a1ff291de0c5c28fa61abf17fa9a90fcd}} 
+\index{VM@{VM}!stack@{stack}}
+\index{stack@{stack}!VM@{VM}}
+\subsubsection{\texorpdfstring{stack}{stack}}
+{\footnotesize\ttfamily float V\+M\+::stack\mbox{[}\hyperlink{vm_8h_a87dcbc4991a2a2fc4eb6fc6a24449f26}{D\+E\+F\+A\+U\+L\+T\+\_\+\+S\+T\+A\+C\+K\+\_\+\+S\+I\+ZE}\mbox{]}}
+
+Операндовый стек 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Net\+Beans\+Cpp\+Projects/\+Test\+Pyd\+Module\+Float/\hyperlink{vm_8h}{vm.\+h}\end{DoxyCompactItemize}

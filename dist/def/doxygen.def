@@ -1,0 +1,1342 @@
+AutoGen Definitions dummy;
+struct = {
+  cp-id     = 'struct_context';
+  cp-name   = 'Context';
+  cp-section = {
+    sec-kind = 'public-attrib';
+    sec-member = {
+      sec-mem-kind = 'variable';
+      sec-mem-id   = 'struct_context_1a5459e2352d9678161c460b618fcc02c8';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+int
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'returnip';
+      sec-mem-desc-file = 'D:/NetBeansCppProjects/TestPydModuleFloat/vm.h';
+      sec-mem-desc-line = '55';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+адрес возврата  
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'variable';
+      sec-mem-id   = 'struct_context_1aa64dab3c13a109ad402cd112066943ee';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+float
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'locals';
+      sec-mem-desc-file = 'D:/NetBeansCppProjects/TestPydModuleFloat/vm.h';
+      sec-mem-desc-line = '57';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+локальные переменные контекста функции  
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+  }; /* cp-section */
+  cp-filename  = 'D:/NetBeansCppProjects/TestPydModuleFloat/vm.h';
+  cp-fileline  = '53';
+  cp-briefdesc = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+  cp-documentation = <<_EnD_oF_dEf_TeXt_
+опкоды операций    
+Контекст для функции
+_EnD_oF_dEf_TeXt_;
+}; /* struct */
+struct = {
+  cp-id     = 'struct_v_m';
+  cp-name   = 'VM';
+  cp-section = {
+    sec-kind = 'public-attrib';
+    sec-member = {
+      sec-mem-kind = 'variable';
+      sec-mem-id   = 'struct_v_m_1a760a936633eb5c7b8de120b5d78f9ba6';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+unsigned char *
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'code';
+      sec-mem-desc-file = 'D:/NetBeansCppProjects/TestPydModuleFloat/vm.h';
+      sec-mem-desc-line = '62';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+байт код  
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'variable';
+      sec-mem-id   = 'struct_v_m_1aa5f1f79d48c3a3512a232000f3eb4c26';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+int
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'code_size';
+      sec-mem-desc-file = 'D:/NetBeansCppProjects/TestPydModuleFloat/vm.h';
+      sec-mem-desc-line = '64';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+размер байт кода  
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'variable';
+      sec-mem-id   = 'struct_v_m_1ab913bee0d5cd7b6b11a1ae4db7f5b576';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+float *
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'globals';
+      sec-mem-desc-file = 'D:/NetBeansCppProjects/TestPydModuleFloat/vm.h';
+      sec-mem-desc-line = '67';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+глобалные переменные  
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'variable';
+      sec-mem-id   = 'struct_v_m_1a68946a4843ec05f3c865d177fa982dbe';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+int
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'nglobals';
+      sec-mem-desc-file = 'D:/NetBeansCppProjects/TestPydModuleFloat/vm.h';
+      sec-mem-desc-line = '69';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+количество глобальных переменных  
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'variable';
+      sec-mem-id   = 'struct_v_m_1a1ff291de0c5c28fa61abf17fa9a90fcd';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+float
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'stack';
+      sec-mem-desc-file = 'D:/NetBeansCppProjects/TestPydModuleFloat/vm.h';
+      sec-mem-desc-line = '72';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+Операндовый стек  
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'variable';
+      sec-mem-id   = 'struct_v_m_1af2f5a8140e32988b2e1c20cc4f913b2e';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+float
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'float_registrThatRetFunc';
+      sec-mem-desc-file = 'D:/NetBeansCppProjects/TestPydModuleFloat/vm.h';
+      sec-mem-desc-line = '74';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+регистр для значения от функции  
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'variable';
+      sec-mem-id   = 'struct_v_m_1ac4bacd79fc85e6a75477292f2dfd3707';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+Context
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'call_stack';
+      sec-mem-desc-file = 'D:/NetBeansCppProjects/TestPydModuleFloat/vm.h';
+      sec-mem-desc-line = '76';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+стек контекстов  
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+  }; /* cp-section */
+  cp-filename  = 'D:/NetBeansCppProjects/TestPydModuleFloat/vm.h';
+  cp-fileline  = '60';
+  cp-briefdesc = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+  cp-documentation = <<_EnD_oF_dEf_TeXt_
+Компонент виртуальной машины  
+_EnD_oF_dEf_TeXt_;
+  cp-collaborationgraph = <<_EnD_oF_dEf_TeXt_
+      node = {
+        node-id    = 3;
+        node-label = 'VM';
+        node-link = {
+          node-link-id = 'struct_v_m';
+        };
+        node-child = {
+          child-id = '4';
+          relation = usage;
+          edgelabel = <<_EnD_oF_dEf_TeXt_
+call_stack
+_EnD_oF_dEf_TeXt_;
+        }; /* node-child */
+      }; /* node */
+      node = {
+        node-id    = 4;
+        node-label = 'Context';
+        node-link = {
+          node-link-id = 'struct_context';
+        };
+      }; /* node */
+
+_EnD_oF_dEf_TeXt_;
+}; /* struct */
+struct = {
+  cp-id     = 'struct_v_m___i_n_s_t_r_u_c_t_i_o_n';
+  cp-name   = 'VM_INSTRUCTION';
+  cp-section = {
+    sec-kind = 'public-attrib';
+    sec-member = {
+      sec-mem-kind = 'variable';
+      sec-mem-id   = 'struct_v_m___i_n_s_t_r_u_c_t_i_o_n_1a7ba2d8dca2db13e7afb5cc2985bcd1d8';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+char
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'name';
+      sec-mem-desc-file = 'D:/NetBeansCppProjects/TestPydModuleFloat/newfile.c';
+      sec-mem-desc-line = '88';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+имя инструкции 
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'variable';
+      sec-mem-id   = 'struct_v_m___i_n_s_t_r_u_c_t_i_o_n_1a4d4cf909e9288d25c75b7ce1eae49e17';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+int
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'nargs';
+      sec-mem-desc-file = 'D:/NetBeansCppProjects/TestPydModuleFloat/newfile.c';
+      sec-mem-desc-line = '90';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+количество аргументов 
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+  }; /* cp-section */
+  cp-filename  = 'D:/NetBeansCppProjects/TestPydModuleFloat/newfile.c';
+  cp-fileline  = '86';
+  cp-briefdesc = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+  cp-documentation = <<_EnD_oF_dEf_TeXt_
+Отпечатка инструкции
+_EnD_oF_dEf_TeXt_;
+}; /* struct */
+file = {
+  file-id   = '_8dep_8inc';
+  file-name = '.dep.inc';
+  file-full-name  = 'D:/NetBeansCppProjects/TestPydModuleFloat/.dep.inc';
+  file-first-line = '1';
+  file-briefdesc  = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+  file-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+}; /* file */
+file = {
+  file-id   = 'newfile_8c';
+  file-name = 'newfile.c';
+    define = {
+    define-member = {
+      define-mem-kind = 'define';
+      define-mem-id   = 'newfile_8c_1ab3683c7777557e82c634055870ab74cf';
+      define-mem-virt = normal;
+      define-mem-prot = public;
+      define-mem-name = 'unpack754_32';
+      define-mem-param  = {
+        define-mem-def-name = 'i';
+      }; /*        define-mem-def--param */
+      define-mem-initializer = <<_EnD_oF_dEf_TeXt_
+(unpack754((i),32,8))
+_EnD_oF_dEf_TeXt_;
+      define-mem-desc-file = 'D:/NetBeansCppProjects/TestPydModuleFloat/newfile.c';
+      define-mem-desc-line = '5';
+      define-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      define-mem-documentation = <<_EnD_oF_dEf_TeXt_
+Распаковать как C float
+_EnD_oF_dEf_TeXt_;
+    }; /* define-member */
+    define-member = {
+      define-mem-kind = 'define';
+      define-mem-id   = 'newfile_8c_1a74cf3c6c3f16ce8b7392aa06faa0eb30';
+      define-mem-virt = normal;
+      define-mem-prot = public;
+      define-mem-name = 'unpack754_64';
+      define-mem-param  = {
+        define-mem-def-name = 'i';
+      }; /*        define-mem-def--param */
+      define-mem-initializer = <<_EnD_oF_dEf_TeXt_
+(unpack754((i),64,11))
+_EnD_oF_dEf_TeXt_;
+      define-mem-desc-file = 'D:/NetBeansCppProjects/TestPydModuleFloat/newfile.c';
+      define-mem-desc-line = '9';
+      define-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      define-mem-documentation = <<_EnD_oF_dEf_TeXt_
+Распаковать как С double
+_EnD_oF_dEf_TeXt_;
+    }; /* define-member */
+    define-member = {
+      define-mem-kind = 'define';
+      define-mem-id   = 'newfile_8c_1a48e42a5f62afe8c4921bce9e66f2c890';
+      define-mem-virt = normal;
+      define-mem-prot = public;
+      define-mem-name = 'NEXTOP';
+      define-mem-initializer = <<_EnD_oF_dEf_TeXt_
+vm->code[ip]
+_EnD_oF_dEf_TeXt_;
+      define-mem-desc-file = 'D:/NetBeansCppProjects/TestPydModuleFloat/newfile.c';
+      define-mem-desc-line = '169';
+      define-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      define-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* define-member */
+    define-member = {
+      define-mem-kind = 'define';
+      define-mem-id   = 'newfile_8c_1a8ab43095a5ec990f58c1e6e0acc231cf';
+      define-mem-virt = normal;
+      define-mem-prot = public;
+      define-mem-name = 'NEXTARGASI4';
+      define-mem-initializer = <<_EnD_oF_dEf_TeXt_
+(ip+=4 ,(u4) ( (u4) (vm-> code[ip-4]<<24 ) | (u4) ( vm->code[ip-3]<<16 ) | (u4) (vm-> code[ip-2]<<8 ) | (u4) (vm-> code[ip-1] ) ) )
+_EnD_oF_dEf_TeXt_;
+      define-mem-desc-file = 'D:/NetBeansCppProjects/TestPydModuleFloat/newfile.c';
+      define-mem-desc-line = '173';
+      define-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      define-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* define-member */
+    };
+    typedef = {
+    typedef-member = {
+      typedef-mem-kind = 'typedef';
+      typedef-mem-id   = 'newfile_8c_1ae5be1f726785414dd1b77d60df074c9d';
+      typedef-mem-virt = normal;
+      typedef-mem-prot = public;
+      typedef-mem-type = <<_EnD_oF_dEf_TeXt_
+uint32_t
+_EnD_oF_dEf_TeXt_;
+      typedef-mem-name = 'u4';
+      typedef-mem-desc-file = 'D:/NetBeansCppProjects/TestPydModuleFloat/newfile.c';
+      typedef-mem-desc-line = '141';
+      typedef-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      typedef-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* typedef-member */
+    };
+    func = {
+    func-member = {
+      func-mem-kind = 'function';
+      func-mem-id   = 'newfile_8c_1a06ab819dcb8081c6dac0669552439acf';
+      func-mem-virt = normal;
+      func-mem-prot = public;
+      func-mem-type = <<_EnD_oF_dEf_TeXt_
+long double
+_EnD_oF_dEf_TeXt_;
+      func-mem-name = 'unpack754';
+      func-mem-param = {
+        func-mem-param-type = <<_EnD_oF_dEf_TeXt_
+uint64_t
+_EnD_oF_dEf_TeXt_;
+        func-mem-param-declname = 'i';
+      }; /*        func-mem-param--param */
+      func-mem-param = {
+        func-mem-param-type = <<_EnD_oF_dEf_TeXt_
+unsigned
+_EnD_oF_dEf_TeXt_;
+        func-mem-param-declname = 'bits';
+      }; /*        func-mem-param--param */
+      func-mem-param = {
+        func-mem-param-type = <<_EnD_oF_dEf_TeXt_
+unsigned
+_EnD_oF_dEf_TeXt_;
+        func-mem-param-declname = 'expbits';
+      }; /*        func-mem-param--param */
+      func-mem-desc-file = 'D:/NetBeansCppProjects/TestPydModuleFloat/newfile.c';
+      func-mem-desc-line = '19';
+      func-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      func-mem-documentation = <<_EnD_oF_dEf_TeXt_
+Распаковать как вещественное число
+@param [in] i float число как целое
+@param [in] bits мантисса
+@param [in] expbits експонента
+\return распакованное вещественное число
+_EnD_oF_dEf_TeXt_;
+    }; /* func-member */
+    func-member = {
+      func-mem-kind = 'function';
+      func-mem-id   = 'newfile_8c_1a053b943b1485401d0990862fa6ca10a5';
+      func-mem-virt = normal;
+      func-mem-prot = public;
+      func-mem-type = <<_EnD_oF_dEf_TeXt_
+float
+_EnD_oF_dEf_TeXt_;
+      func-mem-name = 'call_user';
+      func-mem-param = {
+        func-mem-param-type = <<_EnD_oF_dEf_TeXt_
+int
+_EnD_oF_dEf_TeXt_;
+        func-mem-param-declname = 'funcid';
+      }; /*        func-mem-param--param */
+      func-mem-param = {
+        func-mem-param-type = <<_EnD_oF_dEf_TeXt_
+int
+_EnD_oF_dEf_TeXt_;
+        func-mem-param-declname = 'argc';
+      }; /*        func-mem-param--param */
+      func-mem-param = {
+        func-mem-param-type = <<_EnD_oF_dEf_TeXt_
+float *
+_EnD_oF_dEf_TeXt_;
+        func-mem-param-declname = 'argv';
+      }; /*        func-mem-param--param */
+      func-mem-desc-file = 'D:/NetBeansCppProjects/TestPydModuleFloat/newfile.c';
+      func-mem-desc-line = '59';
+      func-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      func-mem-documentation = <<_EnD_oF_dEf_TeXt_
+   вызвать пользовательскую функцию 
+@param [in] funcid индификатор функции
+@param [in] argc количество аргументов
+@param [in] массив целых аргументов
+\return значение
+_EnD_oF_dEf_TeXt_;
+    }; /* func-member */
+    func-member = {
+      func-mem-kind = 'function';
+      func-mem-id   = 'newfile_8c_1a4c4113f29cf2e379bc6ab511e7254fd9';
+      func-mem-virt = normal;
+      func-mem-prot = public;
+      func-mem-type = <<_EnD_oF_dEf_TeXt_
+static void
+_EnD_oF_dEf_TeXt_;
+      func-mem-name = 'vm_context_init';
+      func-mem-param = {
+        func-mem-param-type = <<_EnD_oF_dEf_TeXt_
+Context *
+_EnD_oF_dEf_TeXt_;
+        func-mem-param-declname = 'ctx';
+      }; /*        func-mem-param--param */
+      func-mem-param = {
+        func-mem-param-type = <<_EnD_oF_dEf_TeXt_
+int
+_EnD_oF_dEf_TeXt_;
+        func-mem-param-declname = 'ip';
+      }; /*        func-mem-param--param */
+      func-mem-param = {
+        func-mem-param-type = <<_EnD_oF_dEf_TeXt_
+int
+_EnD_oF_dEf_TeXt_;
+        func-mem-param-declname = 'nlocals';
+      }; /*        func-mem-param--param */
+      func-mem-desc-file = 'D:/NetBeansCppProjects/TestPydModuleFloat/newfile.c';
+      func-mem-desc-line = '122';
+      func-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      func-mem-documentation = <<_EnD_oF_dEf_TeXt_
+Инициализация контекста  
+_EnD_oF_dEf_TeXt_;
+    }; /* func-member */
+    func-member = {
+      func-mem-kind = 'function';
+      func-mem-id   = 'newfile_8c_1a1215416e668cd81100fd858bbbb61bfd';
+      func-mem-virt = normal;
+      func-mem-prot = public;
+      func-mem-type = <<_EnD_oF_dEf_TeXt_
+void
+_EnD_oF_dEf_TeXt_;
+      func-mem-name = 'vm_init';
+      func-mem-param = {
+        func-mem-param-type = <<_EnD_oF_dEf_TeXt_
+VM *
+_EnD_oF_dEf_TeXt_;
+        func-mem-param-declname = 'vm';
+      }; /*        func-mem-param--param */
+      func-mem-param = {
+        func-mem-param-type = <<_EnD_oF_dEf_TeXt_
+unsigned char *
+_EnD_oF_dEf_TeXt_;
+        func-mem-param-declname = 'code';
+      }; /*        func-mem-param--param */
+      func-mem-param = {
+        func-mem-param-type = <<_EnD_oF_dEf_TeXt_
+int
+_EnD_oF_dEf_TeXt_;
+        func-mem-param-declname = 'code_size';
+      }; /*        func-mem-param--param */
+      func-mem-param = {
+        func-mem-param-type = <<_EnD_oF_dEf_TeXt_
+int
+_EnD_oF_dEf_TeXt_;
+        func-mem-param-declname = 'nglobals';
+      }; /*        func-mem-param--param */
+      func-mem-desc-file = 'D:/NetBeansCppProjects/TestPydModuleFloat/newfile.c';
+      func-mem-desc-line = '124';
+      func-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      func-mem-documentation = <<_EnD_oF_dEf_TeXt_
+инициализируем виртуальную машину  
+_EnD_oF_dEf_TeXt_;
+    }; /* func-member */
+    func-member = {
+      func-mem-kind = 'function';
+      func-mem-id   = 'newfile_8c_1ac3319c7904bff23a4f535c851a85ca8a';
+      func-mem-virt = normal;
+      func-mem-prot = public;
+      func-mem-type = <<_EnD_oF_dEf_TeXt_
+void
+_EnD_oF_dEf_TeXt_;
+      func-mem-name = 'vm_free';
+      func-mem-param = {
+        func-mem-param-type = <<_EnD_oF_dEf_TeXt_
+VM *
+_EnD_oF_dEf_TeXt_;
+        func-mem-param-declname = 'vm';
+      }; /*        func-mem-param--param */
+      func-mem-desc-file = 'D:/NetBeansCppProjects/TestPydModuleFloat/newfile.c';
+      func-mem-desc-line = '131';
+      func-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      func-mem-documentation = <<_EnD_oF_dEf_TeXt_
+освободить память из под виртуальной машины  
+_EnD_oF_dEf_TeXt_;
+    }; /* func-member */
+    func-member = {
+      func-mem-kind = 'function';
+      func-mem-id   = 'newfile_8c_1a65166e7c2fec150ae62fbe87990f11bb';
+      func-mem-virt = normal;
+      func-mem-prot = public;
+      func-mem-type = <<_EnD_oF_dEf_TeXt_
+VM *
+_EnD_oF_dEf_TeXt_;
+      func-mem-name = 'vm_create';
+      func-mem-param = {
+        func-mem-param-type = <<_EnD_oF_dEf_TeXt_
+unsigned char *
+_EnD_oF_dEf_TeXt_;
+        func-mem-param-declname = 'code';
+      }; /*        func-mem-param--param */
+      func-mem-param = {
+        func-mem-param-type = <<_EnD_oF_dEf_TeXt_
+int
+_EnD_oF_dEf_TeXt_;
+        func-mem-param-declname = 'code_size';
+      }; /*        func-mem-param--param */
+      func-mem-param = {
+        func-mem-param-type = <<_EnD_oF_dEf_TeXt_
+int
+_EnD_oF_dEf_TeXt_;
+        func-mem-param-declname = 'nglobals';
+      }; /*        func-mem-param--param */
+      func-mem-desc-file = 'D:/NetBeansCppProjects/TestPydModuleFloat/newfile.c';
+      func-mem-desc-line = '136';
+      func-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      func-mem-documentation = <<_EnD_oF_dEf_TeXt_
+создать виртуальную машину  
+_EnD_oF_dEf_TeXt_;
+    }; /* func-member */
+    func-member = {
+      func-mem-kind = 'function';
+      func-mem-id   = 'newfile_8c_1a5ed570aaac321478484d9e0144415efe';
+      func-mem-virt = normal;
+      func-mem-prot = public;
+      func-mem-type = <<_EnD_oF_dEf_TeXt_
+float
+_EnD_oF_dEf_TeXt_;
+      func-mem-name = 'vm_exec';
+      func-mem-param = {
+        func-mem-param-type = <<_EnD_oF_dEf_TeXt_
+VM *
+_EnD_oF_dEf_TeXt_;
+        func-mem-param-declname = 'vm';
+      }; /*        func-mem-param--param */
+      func-mem-param = {
+        func-mem-param-type = <<_EnD_oF_dEf_TeXt_
+int
+_EnD_oF_dEf_TeXt_;
+        func-mem-param-declname = 'startip';
+      }; /*        func-mem-param--param */
+      func-mem-param = {
+        func-mem-param-type = <<_EnD_oF_dEf_TeXt_
+bool
+_EnD_oF_dEf_TeXt_;
+        func-mem-param-declname = 'trace';
+      }; /*        func-mem-param--param */
+      func-mem-param = {
+        func-mem-param-type = <<_EnD_oF_dEf_TeXt_
+int
+_EnD_oF_dEf_TeXt_;
+        func-mem-param-declname = 'returnPrintOpFromLocals_flag';
+      }; /*        func-mem-param--param */
+      func-mem-desc-file = 'D:/NetBeansCppProjects/TestPydModuleFloat/newfile.c';
+      func-mem-desc-line = '151';
+      func-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      func-mem-documentation = <<_EnD_oF_dEf_TeXt_
+Выпоолняе байт-коды
+@param [in] vm  экземпляр Vm
+@param [in] startip с какого байта выполнять опкоды
+@param [in] trace если трассировка?
+@param [in] numberFromLocalsAsPar использовать ли число из локальных переменных
+\return число из локальных переменных
+_EnD_oF_dEf_TeXt_;
+    }; /* func-member */
+    func-member = {
+      func-mem-kind = 'function';
+      func-mem-id   = 'newfile_8c_1a1de5c52d4400fb28ddc1af3f31282406';
+      func-mem-virt = normal;
+      func-mem-prot = public;
+      func-mem-type = <<_EnD_oF_dEf_TeXt_
+void
+_EnD_oF_dEf_TeXt_;
+      func-mem-name = 'vm_print_instr';
+      func-mem-param = {
+        func-mem-param-type = <<_EnD_oF_dEf_TeXt_
+unsigned char *
+_EnD_oF_dEf_TeXt_;
+        func-mem-param-declname = 'code';
+      }; /*        func-mem-param--param */
+      func-mem-param = {
+        func-mem-param-type = <<_EnD_oF_dEf_TeXt_
+int
+_EnD_oF_dEf_TeXt_;
+        func-mem-param-declname = 'ip';
+      }; /*        func-mem-param--param */
+      func-mem-desc-file = 'D:/NetBeansCppProjects/TestPydModuleFloat/newfile.c';
+      func-mem-desc-line = '350';
+      func-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      func-mem-documentation = <<_EnD_oF_dEf_TeXt_
+печатаем инструкцию  
+_EnD_oF_dEf_TeXt_;
+    }; /* func-member */
+    func-member = {
+      func-mem-kind = 'function';
+      func-mem-id   = 'newfile_8c_1a9c7f48a6bdb2df2f75bd4b649b8e1076';
+      func-mem-virt = normal;
+      func-mem-prot = public;
+      func-mem-type = <<_EnD_oF_dEf_TeXt_
+void
+_EnD_oF_dEf_TeXt_;
+      func-mem-name = 'vm_print_stack';
+      func-mem-param = {
+        func-mem-param-type = <<_EnD_oF_dEf_TeXt_
+float *
+_EnD_oF_dEf_TeXt_;
+        func-mem-param-declname = 'stack';
+      }; /*        func-mem-param--param */
+      func-mem-param = {
+        func-mem-param-type = <<_EnD_oF_dEf_TeXt_
+int
+_EnD_oF_dEf_TeXt_;
+        func-mem-param-declname = 'count';
+      }; /*        func-mem-param--param */
+      func-mem-desc-file = 'D:/NetBeansCppProjects/TestPydModuleFloat/newfile.c';
+      func-mem-desc-line = '378';
+      func-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      func-mem-documentation = <<_EnD_oF_dEf_TeXt_
+печатаем стек  
+_EnD_oF_dEf_TeXt_;
+    }; /* func-member */
+    func-member = {
+      func-mem-kind = 'function';
+      func-mem-id   = 'newfile_8c_1afe378bf07fbf6681ca3ddae4a15ccf35';
+      func-mem-virt = normal;
+      func-mem-prot = public;
+      func-mem-type = <<_EnD_oF_dEf_TeXt_
+void
+_EnD_oF_dEf_TeXt_;
+      func-mem-name = 'vm_print_data';
+      func-mem-param = {
+        func-mem-param-type = <<_EnD_oF_dEf_TeXt_
+float *
+_EnD_oF_dEf_TeXt_;
+        func-mem-param-declname = 'globals';
+      }; /*        func-mem-param--param */
+      func-mem-param = {
+        func-mem-param-type = <<_EnD_oF_dEf_TeXt_
+int
+_EnD_oF_dEf_TeXt_;
+        func-mem-param-declname = 'count';
+      }; /*        func-mem-param--param */
+      func-mem-desc-file = 'D:/NetBeansCppProjects/TestPydModuleFloat/newfile.c';
+      func-mem-desc-line = '387';
+      func-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      func-mem-documentation = <<_EnD_oF_dEf_TeXt_
+печатаем глобальные переменные 
+_EnD_oF_dEf_TeXt_;
+    }; /* func-member */
+    func-member = {
+      func-mem-kind = 'function';
+      func-mem-id   = 'newfile_8c_1ac734dab32ac8959b0df306d6f0f9e6d0';
+      func-mem-virt = normal;
+      func-mem-prot = public;
+      func-mem-type = <<_EnD_oF_dEf_TeXt_
+void
+_EnD_oF_dEf_TeXt_;
+      func-mem-name = 'vm_print_locals';
+      func-mem-param = {
+        func-mem-param-type = <<_EnD_oF_dEf_TeXt_
+float *
+_EnD_oF_dEf_TeXt_;
+        func-mem-param-declname = 'locals';
+      }; /*        func-mem-param--param */
+      func-mem-param = {
+        func-mem-param-type = <<_EnD_oF_dEf_TeXt_
+int
+_EnD_oF_dEf_TeXt_;
+        func-mem-param-declname = 'count';
+      }; /*        func-mem-param--param */
+      func-mem-desc-file = 'D:/NetBeansCppProjects/TestPydModuleFloat/newfile.c';
+      func-mem-desc-line = '395';
+      func-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      func-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* func-member */
+    func-member = {
+      func-mem-kind = 'function';
+      func-mem-id   = 'newfile_8c_1a75819c65be8acdd3f9eb91f342d1a7cb';
+      func-mem-virt = normal;
+      func-mem-prot = public;
+      func-mem-type = <<_EnD_oF_dEf_TeXt_
+static PyObject *
+_EnD_oF_dEf_TeXt_;
+      func-mem-name = 'evalVm_poPoRpo';
+      func-mem-param = {
+        func-mem-param-type = <<_EnD_oF_dEf_TeXt_
+PyObject *
+_EnD_oF_dEf_TeXt_;
+        func-mem-param-declname = 'self';
+      }; /*        func-mem-param--param */
+      func-mem-param = {
+        func-mem-param-type = <<_EnD_oF_dEf_TeXt_
+PyObject *
+_EnD_oF_dEf_TeXt_;
+        func-mem-param-declname = 'args';
+      }; /*        func-mem-param--param */
+      func-mem-desc-file = 'D:/NetBeansCppProjects/TestPydModuleFloat/newfile.c';
+      func-mem-desc-line = '405';
+      func-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      func-mem-documentation = <<_EnD_oF_dEf_TeXt_
+Выполнить Вм для Python расширения
+_EnD_oF_dEf_TeXt_;
+    }; /* func-member */
+    func-member = {
+      func-mem-kind = 'function';
+      func-mem-id   = 'newfile_8c_1a8b77fd6c6fe702e4454fceb1a3b6a5e6';
+      func-mem-virt = normal;
+      func-mem-prot = public;
+      func-mem-type = <<_EnD_oF_dEf_TeXt_
+PyMODINIT_FUNC
+_EnD_oF_dEf_TeXt_;
+      func-mem-name = 'PyInit_libTestPydModuleFloat';
+      func-mem-param = {
+        func-mem-param-type = <<_EnD_oF_dEf_TeXt_
+void
+_EnD_oF_dEf_TeXt_;
+      }; /*        func-mem-param--param */
+      func-mem-desc-file = 'D:/NetBeansCppProjects/TestPydModuleFloat/newfile.c';
+      func-mem-desc-line = '457';
+      func-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      func-mem-documentation = <<_EnD_oF_dEf_TeXt_
+Экспорт в python  
+_EnD_oF_dEf_TeXt_;
+    }; /* func-member */
+    };
+    var = {
+    var-member = {
+      var-mem-kind = 'variable';
+      var-mem-id   = 'newfile_8c_1a6331b464965ec225ab4a162157a713b8';
+      var-mem-virt = normal;
+      var-mem-prot = public;
+      var-mem-type = <<_EnD_oF_dEf_TeXt_
+static VM_INSTRUCTION
+_EnD_oF_dEf_TeXt_;
+      var-mem-name = 'vm_instructions';
+      var-mem-initializer = <<_EnD_oF_dEf_TeXt_
+= {
+    { "noop", 0},
+    { "iadd", 0},
+    { "isub", 0},
+    { "imul", 0},
+    {"idiv", 0},
+    {"irem", 0},
+    {"ipow", 0},
+    { "ilt", 0},
+    { "ieq", 0},
+    { "br", 1},
+    { "brt", 1},
+    { "brf", 1},
+    { "iconst", 1},
+    { "load", 1},
+    { "gload", 1},
+    { "store", 1},
+    { "gstore", 1},
+    { "print", 0},
+    { "pop", 0},
+    { "call", 2},
+    { "ret", 0},
+    {"store_result", 1},
+    {"load_result", 0},
+    { "halt", 0}
+}
+_EnD_oF_dEf_TeXt_;
+      var-mem-desc-file = 'D:/NetBeansCppProjects/TestPydModuleFloat/newfile.c';
+      var-mem-desc-line = '95';
+      var-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      var-mem-documentation = <<_EnD_oF_dEf_TeXt_
+Массив данных о каждой инструкции  
+_EnD_oF_dEf_TeXt_;
+    }; /* var-member */
+    var-member = {
+      var-mem-kind = 'variable';
+      var-mem-id   = 'newfile_8c_1affde1e3dc2e4394749dcc49b6c9f6129';
+      var-mem-virt = normal;
+      var-mem-prot = public;
+      var-mem-type = <<_EnD_oF_dEf_TeXt_
+static PyMethodDef
+_EnD_oF_dEf_TeXt_;
+      var-mem-name = 'funcs';
+      var-mem-initializer = <<_EnD_oF_dEf_TeXt_
+= {
+    {"eval", (PyCFunction) evalVm_poPoRpo, METH_VARARGS, ""},
+    {NULL, NULL, 0, NULL}
+}
+_EnD_oF_dEf_TeXt_;
+      var-mem-desc-file = 'D:/NetBeansCppProjects/TestPydModuleFloat/newfile.c';
+      var-mem-desc-line = '440';
+      var-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      var-mem-documentation = <<_EnD_oF_dEf_TeXt_
+Какие функции задействуем для Python расширения  
+_EnD_oF_dEf_TeXt_;
+    }; /* var-member */
+    var-member = {
+      var-mem-kind = 'variable';
+      var-mem-id   = 'newfile_8c_1a2330f753613b0d6940bee6516f6eea7f';
+      var-mem-virt = normal;
+      var-mem-prot = public;
+      var-mem-type = <<_EnD_oF_dEf_TeXt_
+static struct PyModuleDef
+_EnD_oF_dEf_TeXt_;
+      var-mem-name = 'cModPyDem';
+      var-mem-initializer = <<_EnD_oF_dEf_TeXt_
+= {
+    PyModuleDef_HEAD_INIT,
+
+    "VmTestPy",
+
+    "",
+    -1,
+
+    funcs
+}
+_EnD_oF_dEf_TeXt_;
+      var-mem-desc-file = 'D:/NetBeansCppProjects/TestPydModuleFloat/newfile.c';
+      var-mem-desc-line = '440';
+      var-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      var-mem-documentation = <<_EnD_oF_dEf_TeXt_
+Структура Python модуля  
+_EnD_oF_dEf_TeXt_;
+    }; /* var-member */
+    };
+  file-full-name  = 'D:/NetBeansCppProjects/TestPydModuleFloat/newfile.c';
+  file-first-line = '1';
+  file-briefdesc  = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+  file-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+}; /* file */
+file = {
+  file-id   = 'vm_8h';
+  file-name = 'vm.h';
+    define = {
+    define-member = {
+      define-mem-kind = 'define';
+      define-mem-id   = 'vm_8h_1a87dcbc4991a2a2fc4eb6fc6a24449f26';
+      define-mem-virt = normal;
+      define-mem-prot = public;
+      define-mem-name = 'DEFAULT_STACK_SIZE';
+      define-mem-initializer = <<_EnD_oF_dEf_TeXt_
+1000
+_EnD_oF_dEf_TeXt_;
+      define-mem-desc-file = 'D:/NetBeansCppProjects/TestPydModuleFloat/vm.h';
+      define-mem-desc-line = '16';
+      define-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+размер стека по умолчанию
+_EnD_oF_dEf_TeXt_;
+      define-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* define-member */
+    define-member = {
+      define-mem-kind = 'define';
+      define-mem-id   = 'vm_8h_1a8b344ec0cbf964588d894f826d85fc28';
+      define-mem-virt = normal;
+      define-mem-prot = public;
+      define-mem-name = 'DEFAULT_CALL_STACK_SIZE';
+      define-mem-initializer = <<_EnD_oF_dEf_TeXt_
+100
+_EnD_oF_dEf_TeXt_;
+      define-mem-desc-file = 'D:/NetBeansCppProjects/TestPydModuleFloat/vm.h';
+      define-mem-desc-line = '17';
+      define-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+размер стека контекстов по умолчанию
+_EnD_oF_dEf_TeXt_;
+      define-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* define-member */
+    define-member = {
+      define-mem-kind = 'define';
+      define-mem-id   = 'vm_8h_1ad2267ca313737863ca8ce15da73985c9';
+      define-mem-virt = normal;
+      define-mem-prot = public;
+      define-mem-name = 'DEFAULT_NUM_LOCALS';
+      define-mem-initializer = <<_EnD_oF_dEf_TeXt_
+26
+_EnD_oF_dEf_TeXt_;
+      define-mem-desc-file = 'D:/NetBeansCppProjects/TestPydModuleFloat/vm.h';
+      define-mem-desc-line = '18';
+      define-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+количество локальных по умолчанию
+_EnD_oF_dEf_TeXt_;
+      define-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* define-member */
+    };
+    enum = {
+    enum-member = {
+      enum-mem-kind = 'enum';
+      enum-mem-id   = 'vm_8h_1a901daed590dadc5d2f77ad3336665207';
+      enum-mem-virt = normal;
+      enum-mem-prot = public;
+      enum-mem-name = 'VM_CODE';
+      enum-mem-enum = { enum-name = NOOP; };
+      enum-mem-enum = { enum-name = IADD; };
+      enum-mem-enum = { enum-name = ISUB; };
+      enum-mem-enum = { enum-name = IMUL; };
+      enum-mem-enum = { enum-name = IDIV; };
+      enum-mem-enum = { enum-name = IREM; };
+      enum-mem-enum = { enum-name = IPOW; };
+      enum-mem-enum = { enum-name = ILT; };
+      enum-mem-enum = { enum-name = IEQ; };
+      enum-mem-enum = { enum-name = BR; };
+      enum-mem-enum = { enum-name = BRT; };
+      enum-mem-enum = { enum-name = BRF; };
+      enum-mem-enum = { enum-name = ICONST; };
+      enum-mem-enum = { enum-name = LOAD; };
+      enum-mem-enum = { enum-name = GLOAD; };
+      enum-mem-enum = { enum-name = STORE; };
+      enum-mem-enum = { enum-name = GSTORE; };
+      enum-mem-enum = { enum-name = PRINT; };
+      enum-mem-enum = { enum-name = POP; };
+      enum-mem-enum = { enum-name = CALL; };
+      enum-mem-enum = { enum-name = RET; };
+      enum-mem-enum = { enum-name = STORE_RESULT; };
+      enum-mem-enum = { enum-name = LOAD_RESULT; };
+      enum-mem-enum = { enum-name = HALT; };
+      enum-mem-desc-file = 'D:/NetBeansCppProjects/TestPydModuleFloat/vm.h';
+      enum-mem-desc-line = '20';
+      enum-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      enum-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* enum-member */
+    };
+    func = {
+    func-member = {
+      func-mem-kind = 'function';
+      func-mem-id   = 'vm_8h_1a65166e7c2fec150ae62fbe87990f11bb';
+      func-mem-virt = normal;
+      func-mem-prot = public;
+      func-mem-type = <<_EnD_oF_dEf_TeXt_
+VM *
+_EnD_oF_dEf_TeXt_;
+      func-mem-name = 'vm_create';
+      func-mem-param = {
+        func-mem-param-type = <<_EnD_oF_dEf_TeXt_
+unsigned char *
+_EnD_oF_dEf_TeXt_;
+        func-mem-param-declname = 'code';
+      }; /*        func-mem-param--param */
+      func-mem-param = {
+        func-mem-param-type = <<_EnD_oF_dEf_TeXt_
+int
+_EnD_oF_dEf_TeXt_;
+        func-mem-param-declname = 'code_size';
+      }; /*        func-mem-param--param */
+      func-mem-param = {
+        func-mem-param-type = <<_EnD_oF_dEf_TeXt_
+int
+_EnD_oF_dEf_TeXt_;
+        func-mem-param-declname = 'nglobals';
+      }; /*        func-mem-param--param */
+      func-mem-desc-file = 'D:/NetBeansCppProjects/TestPydModuleFloat/vm.h';
+      func-mem-desc-line = '80';
+      func-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      func-mem-documentation = <<_EnD_oF_dEf_TeXt_
+создать виртуальную машину  
+_EnD_oF_dEf_TeXt_;
+    }; /* func-member */
+    func-member = {
+      func-mem-kind = 'function';
+      func-mem-id   = 'vm_8h_1ac3319c7904bff23a4f535c851a85ca8a';
+      func-mem-virt = normal;
+      func-mem-prot = public;
+      func-mem-type = <<_EnD_oF_dEf_TeXt_
+void
+_EnD_oF_dEf_TeXt_;
+      func-mem-name = 'vm_free';
+      func-mem-param = {
+        func-mem-param-type = <<_EnD_oF_dEf_TeXt_
+VM *
+_EnD_oF_dEf_TeXt_;
+        func-mem-param-declname = 'vm';
+      }; /*        func-mem-param--param */
+      func-mem-desc-file = 'D:/NetBeansCppProjects/TestPydModuleFloat/vm.h';
+      func-mem-desc-line = '82';
+      func-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      func-mem-documentation = <<_EnD_oF_dEf_TeXt_
+освободить память из под виртуальной машины  
+_EnD_oF_dEf_TeXt_;
+    }; /* func-member */
+    func-member = {
+      func-mem-kind = 'function';
+      func-mem-id   = 'vm_8h_1a1215416e668cd81100fd858bbbb61bfd';
+      func-mem-virt = normal;
+      func-mem-prot = public;
+      func-mem-type = <<_EnD_oF_dEf_TeXt_
+void
+_EnD_oF_dEf_TeXt_;
+      func-mem-name = 'vm_init';
+      func-mem-param = {
+        func-mem-param-type = <<_EnD_oF_dEf_TeXt_
+VM *
+_EnD_oF_dEf_TeXt_;
+        func-mem-param-declname = 'vm';
+      }; /*        func-mem-param--param */
+      func-mem-param = {
+        func-mem-param-type = <<_EnD_oF_dEf_TeXt_
+unsigned char *
+_EnD_oF_dEf_TeXt_;
+        func-mem-param-declname = 'code';
+      }; /*        func-mem-param--param */
+      func-mem-param = {
+        func-mem-param-type = <<_EnD_oF_dEf_TeXt_
+int
+_EnD_oF_dEf_TeXt_;
+        func-mem-param-declname = 'code_size';
+      }; /*        func-mem-param--param */
+      func-mem-param = {
+        func-mem-param-type = <<_EnD_oF_dEf_TeXt_
+int
+_EnD_oF_dEf_TeXt_;
+        func-mem-param-declname = 'nglobals';
+      }; /*        func-mem-param--param */
+      func-mem-desc-file = 'D:/NetBeansCppProjects/TestPydModuleFloat/vm.h';
+      func-mem-desc-line = '84';
+      func-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      func-mem-documentation = <<_EnD_oF_dEf_TeXt_
+инициализируем виртуальную машину  
+_EnD_oF_dEf_TeXt_;
+    }; /* func-member */
+    func-member = {
+      func-mem-kind = 'function';
+      func-mem-id   = 'vm_8h_1a6850e1c41c56265e70049a3d80a8834d';
+      func-mem-virt = normal;
+      func-mem-prot = public;
+      func-mem-type = <<_EnD_oF_dEf_TeXt_
+float
+_EnD_oF_dEf_TeXt_;
+      func-mem-name = 'vm_exec';
+      func-mem-param = {
+        func-mem-param-type = <<_EnD_oF_dEf_TeXt_
+VM *
+_EnD_oF_dEf_TeXt_;
+        func-mem-param-declname = 'vm';
+      }; /*        func-mem-param--param */
+      func-mem-param = {
+        func-mem-param-type = <<_EnD_oF_dEf_TeXt_
+int
+_EnD_oF_dEf_TeXt_;
+        func-mem-param-declname = 'startip';
+      }; /*        func-mem-param--param */
+      func-mem-param = {
+        func-mem-param-type = <<_EnD_oF_dEf_TeXt_
+bool
+_EnD_oF_dEf_TeXt_;
+        func-mem-param-declname = 'trace';
+      }; /*        func-mem-param--param */
+      func-mem-param = {
+        func-mem-param-type = <<_EnD_oF_dEf_TeXt_
+int
+_EnD_oF_dEf_TeXt_;
+        func-mem-param-declname = 'returnPrintOp_flag';
+        func-mem-param-defname = 'returnPrintOpFromLocals_flag';
+      }; /*        func-mem-param--param */
+      func-mem-desc-file = 'D:/NetBeansCppProjects/TestPydModuleFloat/vm.h';
+      func-mem-desc-line = '86';
+      func-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      func-mem-documentation = <<_EnD_oF_dEf_TeXt_
+выполнение инструкций  
+
+Выпоолняе байт-коды
+@param [in] vm  экземпляр Vm
+@param [in] startip с какого байта выполнять опкоды
+@param [in] trace если трассировка?
+@param [in] numberFromLocalsAsPar использовать ли число из локальных переменных
+\return число из локальных переменных
+_EnD_oF_dEf_TeXt_;
+    }; /* func-member */
+    func-member = {
+      func-mem-kind = 'function';
+      func-mem-id   = 'vm_8h_1a1de5c52d4400fb28ddc1af3f31282406';
+      func-mem-virt = normal;
+      func-mem-prot = public;
+      func-mem-type = <<_EnD_oF_dEf_TeXt_
+void
+_EnD_oF_dEf_TeXt_;
+      func-mem-name = 'vm_print_instr';
+      func-mem-param = {
+        func-mem-param-type = <<_EnD_oF_dEf_TeXt_
+unsigned char *
+_EnD_oF_dEf_TeXt_;
+        func-mem-param-declname = 'code';
+      }; /*        func-mem-param--param */
+      func-mem-param = {
+        func-mem-param-type = <<_EnD_oF_dEf_TeXt_
+int
+_EnD_oF_dEf_TeXt_;
+        func-mem-param-declname = 'ip';
+      }; /*        func-mem-param--param */
+      func-mem-desc-file = 'D:/NetBeansCppProjects/TestPydModuleFloat/vm.h';
+      func-mem-desc-line = '88';
+      func-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      func-mem-documentation = <<_EnD_oF_dEf_TeXt_
+печатаем инструкцию  
+_EnD_oF_dEf_TeXt_;
+    }; /* func-member */
+    func-member = {
+      func-mem-kind = 'function';
+      func-mem-id   = 'vm_8h_1a9c7f48a6bdb2df2f75bd4b649b8e1076';
+      func-mem-virt = normal;
+      func-mem-prot = public;
+      func-mem-type = <<_EnD_oF_dEf_TeXt_
+void
+_EnD_oF_dEf_TeXt_;
+      func-mem-name = 'vm_print_stack';
+      func-mem-param = {
+        func-mem-param-type = <<_EnD_oF_dEf_TeXt_
+float *
+_EnD_oF_dEf_TeXt_;
+        func-mem-param-declname = 'stack';
+      }; /*        func-mem-param--param */
+      func-mem-param = {
+        func-mem-param-type = <<_EnD_oF_dEf_TeXt_
+int
+_EnD_oF_dEf_TeXt_;
+        func-mem-param-declname = 'count';
+      }; /*        func-mem-param--param */
+      func-mem-desc-file = 'D:/NetBeansCppProjects/TestPydModuleFloat/vm.h';
+      func-mem-desc-line = '90';
+      func-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      func-mem-documentation = <<_EnD_oF_dEf_TeXt_
+печатаем стек  
+_EnD_oF_dEf_TeXt_;
+    }; /* func-member */
+    func-member = {
+      func-mem-kind = 'function';
+      func-mem-id   = 'vm_8h_1afe378bf07fbf6681ca3ddae4a15ccf35';
+      func-mem-virt = normal;
+      func-mem-prot = public;
+      func-mem-type = <<_EnD_oF_dEf_TeXt_
+void
+_EnD_oF_dEf_TeXt_;
+      func-mem-name = 'vm_print_data';
+      func-mem-param = {
+        func-mem-param-type = <<_EnD_oF_dEf_TeXt_
+float *
+_EnD_oF_dEf_TeXt_;
+        func-mem-param-declname = 'globals';
+      }; /*        func-mem-param--param */
+      func-mem-param = {
+        func-mem-param-type = <<_EnD_oF_dEf_TeXt_
+int
+_EnD_oF_dEf_TeXt_;
+        func-mem-param-declname = 'count';
+      }; /*        func-mem-param--param */
+      func-mem-desc-file = 'D:/NetBeansCppProjects/TestPydModuleFloat/vm.h';
+      func-mem-desc-line = '92';
+      func-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      func-mem-documentation = <<_EnD_oF_dEf_TeXt_
+печатаем глобальные переменные 
+_EnD_oF_dEf_TeXt_;
+    }; /* func-member */
+    func-member = {
+      func-mem-kind = 'function';
+      func-mem-id   = 'vm_8h_1a053b943b1485401d0990862fa6ca10a5';
+      func-mem-virt = normal;
+      func-mem-prot = public;
+      func-mem-type = <<_EnD_oF_dEf_TeXt_
+float
+_EnD_oF_dEf_TeXt_;
+      func-mem-name = 'call_user';
+      func-mem-param = {
+        func-mem-param-type = <<_EnD_oF_dEf_TeXt_
+int
+_EnD_oF_dEf_TeXt_;
+        func-mem-param-declname = 'funcid';
+      }; /*        func-mem-param--param */
+      func-mem-param = {
+        func-mem-param-type = <<_EnD_oF_dEf_TeXt_
+int
+_EnD_oF_dEf_TeXt_;
+        func-mem-param-declname = 'argc';
+      }; /*        func-mem-param--param */
+      func-mem-param = {
+        func-mem-param-type = <<_EnD_oF_dEf_TeXt_
+float *
+_EnD_oF_dEf_TeXt_;
+        func-mem-param-declname = 'argv';
+      }; /*        func-mem-param--param */
+      func-mem-desc-file = 'D:/NetBeansCppProjects/TestPydModuleFloat/vm.h';
+      func-mem-desc-line = '94';
+      func-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      func-mem-documentation = <<_EnD_oF_dEf_TeXt_
+вызвать пользовательскую функцию  
+
+   вызвать пользовательскую функцию 
+@param [in] funcid индификатор функции
+@param [in] argc количество аргументов
+@param [in] массив целых аргументов
+\return значение
+_EnD_oF_dEf_TeXt_;
+    }; /* func-member */
+    };
+  file-full-name  = 'D:/NetBeansCppProjects/TestPydModuleFloat/vm.h';
+  file-first-line = '1';
+  file-briefdesc  = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+  file-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+}; /* file */
+file = {
+  file-id   = 'vm__py_8py';
+  file-name = 'vm_py.py';
+  file-full-name  = 'D:/NetBeansCppProjects/TestPydModuleFloat/vm_py.py';
+  file-first-line = '1';
+  file-briefdesc  = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+  file-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+}; /* file */
