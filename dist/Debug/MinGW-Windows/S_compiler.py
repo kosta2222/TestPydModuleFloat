@@ -481,17 +481,17 @@ class Vm:
             self.ip+=1
             addr=self.code[self.ip]
             if self.steck[self.sp]==TRUE:
-            self.ip=addr
+              self.ip=addr
             self.sp-=1 
             continue  
-            elif opcode==BRF:
+        elif opcode==BRF:
             self.ip+=1
             addr=self.code[self.ip]
             if self.steck[self.sp]==FALSE:
-            self.ip=addr
+              self.ip=addr
             self.sp-=1 
             continue
-            elif opcode==IADD:
+        elif opcode==IADD:
             b=self.steck[self.sp]
             self.sp-=1
             a=self.steck[self.sp]
@@ -536,9 +536,7 @@ class Vm:
             if int_chisloIzLocalnihKakParametr!=25:
              print("print loc:",self.pole_vectorKclassContextK_funcCont[I_callSp].locals_[int_chisloIzLocalnihKakParametr])
             else:
-             print("print ret reg:",self.pole_float_registrThatRetFunc)  
-        
-        
+             print("print ret reg:",self.pole_float_registrThatRetFunc)         
         elif opcode==LOAD:
             self.ip+=1
             regnum=self.code[self.ip]
