@@ -51,8 +51,9 @@ from struct import pack,unpack
     STORE_RESULT,
     LOAD_RESULT,
     INVOKE_BY_ORDINAL,
+    CREATE_STRING,
     HALT    
-)=range(25)
+)=range(26)
 
 
 #import pdb
@@ -282,9 +283,15 @@ class LispMach:
         self.fi_int_nargs=j
     elif mas_I_Or_Str[0]=='invoke_by_ordinal': # вызвать нативную функцию
         self.me_gen_byteCode_SIrV(INVOKE_BY_ORDINAL)
+        
+    elif mas_I_Or_Str[0]=='create_string':
+        (_,argStr)= mas_I_Or_Str
+        self.me_gen_byteCode_SIrV(CREATE_STRING)
+        self.me_gen_byteCode_SIrV(argStr)
      
     elif mas_I_Or_Str[0]=='pass': # ничего не делать
         self.me_gen_byteCode_SIrV(NOOP)
+        
     else:
         raise Exception("Unknown keyword %s"%mas_I_Or_Str[0])
             
@@ -369,6 +376,7 @@ listKstrK_opcodes=[
             ["STORE_RESULT",1],
             ["LOAD_RESULT",0],
             ["INVOKE_BY_ORDINAL",0],
+            ["CREATE_STRING",0],
             ["HALT",0]        
         ] 
 def func_vmPrintStack_SvectorKfloatKI(par_vectorKfloatK_stack, par_I_count) :
@@ -441,7 +449,12 @@ def  call_user(funcid,argc,argv):
         print("\n");
         return ret;
     
-           
+def createStringObj(strPar):
+    """
+    Создать строковый обьект в Python heap и вернуть ссылку на него, чтобы положить ее на стек
+    """
+    newStrObj=str(strPar)
+    return newStrObj
 class Vm:
     code=[]
     a=0
@@ -617,7 +630,7 @@ class Vm:
             self.ip=self.pole_vectorKclassContextK_funcCont[I_callSp].returnIp
             I_callSp-=1
             continue
-        elif opcode==INVOKE_BY_ORDINAL:
+        elif opcode==INVOKE_BY_ORDINAL: # вызов по ординалу
             # берем id функции из кода
             #self.ip+=1
             arg=int(self.steck[self.sp]) 
@@ -635,13 +648,19 @@ class Vm:
             # заполняем список параметро
             for i in range(0,argc):
                 argv.append(self.steck[self.sp])
-                self.sp-=1 
-           
+                self.sp-=1       
             # вызываем функцию
             a=call_user(arg,argc,argv)
             # если число параметров не равно 0, то записываем в регистр 
             if (argc!=0):
                 self.pole_float_registrThatRetFunc=a
+        # ВМ создает строку 
+        elif opcode==CREATE_STRING:
+            self.ip+=1
+            arg=self.code[self.ip]
+            strRef=createStringObj(arg)
+            self.sp+=1
+            self.steck[self.sp]=strRef
         #elif opcode==INC:
             #v=self.steck[self.sp]
             #v+=1
@@ -706,7 +725,7 @@ class Vm:
             #self.steck[self.sp]=FALSE#False         
         else:
              raise Exception("invalid opcode:",opcode," at ip=",(self.ip))
-        print('sp:%d top:%f'%(self.sp,self.steck[self.sp])) 
+        #print('sp:%d top:%f'%(self.sp,self.steck[self.sp])) 
         func_vmPrintStack_SvectorKfloatKI(self.steck,10) 
         self.ip+=1        
 
