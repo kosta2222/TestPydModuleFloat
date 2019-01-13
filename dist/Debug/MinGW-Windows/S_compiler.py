@@ -25,7 +25,8 @@
                         Str - String.
 
 """
-import libTestPydModuleFloat as vt
+#import libTestPydModuleFloat as vt
+#*****************************Compiller********************************
 from struct import pack,unpack
 (   NOOP    ,
     IADD    , 
@@ -52,8 +53,11 @@ from struct import pack,unpack
     LOAD_RESULT,
     INVOKE_BY_ORDINAL,
     CREATE_STRING,
+    NEWARRAY,
+    IASTORE,
+    DUP,
     HALT    
-)=range(26)
+)=range(29)
 
 
 #import pdb
@@ -179,9 +183,7 @@ class LispMach:
         else:  
             self.fi_dict_str_int_funcTable[str_nameFunc]=len(self.fi_mas_I_byteCode)
         self.me_recurs_evalPerList_SMrV(list_arg)    
-        self.me_recurs_evalPerList_SMrV(list_expr)
-        
-           
+        self.me_recurs_evalPerList_SMrV(list_expr)                  
     elif mas_I_Or_Str[0] == '$': # выполнить выражения слева направо
         for exp in mas_I_Or_Str[1:]:
             val = self.me_recurs_evalPerList_SMrV(exp)
@@ -282,12 +284,25 @@ class LispMach:
             j+=1
         self.fi_int_nargs=j
     elif mas_I_Or_Str[0]=='invoke_by_ordinal': # вызвать нативную функцию
+        (_,funcid)=mas_I_Or_Str
+        self.me_recurs_evalPerList_SMrV(funcid)
         self.me_gen_byteCode_SIrV(INVOKE_BY_ORDINAL)
         
     elif mas_I_Or_Str[0]=='create_string':
         (_,argStr)= mas_I_Or_Str
         self.me_gen_byteCode_SIrV(CREATE_STRING)
         self.me_gen_byteCode_SIrV(argStr)
+    elif mas_I_Or_Str[0]=='newarray':
+        (_,arrLen)=mas_I_Or_Str
+        self.me_recurs_evalPerList_SMrV(arrLen)
+        self.me_gen_byteCode_SIrV(NEWARRAY)
+    elif mas_I_Or_Str[0]=='iastore':
+        (_,index,val)=mas_I_Or_Str
+        self.me_recurs_evalPerList_SMrV(index)
+        self.me_recurs_evalPerList_SMrV(val)
+        self.me_gen_byteCode_SIrV(IASTORE)
+    elif mas_I_Or_Str[0]=='dup':
+        self.me_gen_byteCode_SIrV(DUP)
      
     elif mas_I_Or_Str[0]=='pass': # ничего не делать
         self.me_gen_byteCode_SIrV(NOOP)
@@ -350,7 +365,7 @@ def atom(token):
         except ValueError:
             return Symbol(token)
 
-
+#******************Vm**********************************************
 listKstrK_opcodes=[
             ["NOOP",0]    ,
             ["IADD",0]    ,
@@ -377,6 +392,9 @@ listKstrK_opcodes=[
             ["LOAD_RESULT",0],
             ["INVOKE_BY_ORDINAL",0],
             ["CREATE_STRING",0],
+            ["NEWARRAY",1],
+            ["IASTORE",0],
+            ["DUP",0],
             ["HALT",0]        
         ] 
 def func_vmPrintStack_SvectorKfloatKI(par_vectorKfloatK_stack, par_I_count) :
@@ -449,12 +467,15 @@ def  call_user(funcid,argc,argv):
         print("\n");
         return ret;
     
-def createStringObj(strPar):
+def createStringObj(strPar_S):
     """
     Создать строковый обьект в Python heap и вернуть ссылку на него, чтобы положить ее на стек
     """
     newStrObj=str(strPar)
     return newStrObj
+
+
+    
 class Vm:
     code=[]
     a=0
@@ -465,6 +486,7 @@ class Vm:
     pole_float_registrThatRetFunc=0.0
     trace=False
     globals_=[]
+    
                       
     def __init__(self,code,trace=False):
             self.code=code
@@ -474,6 +496,25 @@ class Vm:
             print("vector<Context>:",self.pole_vectorKclassContextK_funcCont[0])
             self.trace=trace
             self.pole_float_registrThatRetFunc=0.0
+            # элементы heap
+            self.heap={}
+            self.heap_next_id=0
+    def add_to_heap(self,heapObj):
+      """
+      Метод принимает обьект например список и добавляет в карту и возвращает ключ
+      """
+      ref=self.heap_next_id
+      self.heap[ref]=heapObj
+      self.heap_next_id+=1
+      return ref
+    def createArray(self,arrLen_I):
+        """
+        Создать массив в Python heap и вернуть ссылку на него, чтобы положить ее на стек
+        """
+        newArr=[0]*int(arrLen_I)
+        # ложим обьект в кучу
+        ref=self.add_to_heap(newArr)
+        return ref    
         
     def exec_(self,startip):
             #self.ctx=Context(None,0,26)
@@ -498,7 +539,6 @@ class Vm:
             self.ip+=4
         elif opcode==GSTORE:
             v=self.steck[self.sp]
-            #print('v',v)
             self.sp-=1
             self.ip+=1
             addr=self.code[self.ip]
@@ -588,8 +628,7 @@ class Vm:
             print("self.pole_vectorKclassContextK_funcCont[I_callSp]",self.pole_vectorKclassContextK_funcCont[I_callSp])
             print("len(self.pole_vectorKclassContextK_funcCont[I_callSp].locals_)",len(self.pole_vectorKclassContextK_funcCont[I_callSp].locals_))
             self.steck[self.sp]=self.pole_vectorKclassContextK_funcCont[I_callSp].locals_[regnum]
-            print("Load I_callSp",I_callSp,type(I_callSp))
-        
+            print("Load I_callSp",I_callSp,type(I_callSp)) 
         elif opcode==STORE:
             self.ip+=1
             regnum=self.code[self.ip]
@@ -602,8 +641,6 @@ class Vm:
             self.pole_float_registrThatRetFunc=self.pole_vectorKclassContextK_funcCont[I_callSp].locals_[regnum]
             self.sp-=1   
         elif opcode==LOAD_RESULT:
-            #self.ip+=1
-            #regnum=self.code[self.ip]
             self.sp+=1
             self.steck[self.sp]=self.pole_float_registrThatRetFunc                                
         elif opcode==CALL:
@@ -618,7 +655,6 @@ class Vm:
             classContext_curContext=self.pole_vectorKclassContextK_funcCont[I_callSp]
             classContext_curContext.returnIp=self.ip+1
         
-        
             I_firstarg=self.sp-I_nargs+1
         
             for i in range(0,I_nargs):
@@ -631,7 +667,7 @@ class Vm:
             I_callSp-=1
             continue
         elif opcode==INVOKE_BY_ORDINAL: # вызов по ординалу
-            # берем id функции из кода
+            # берем id функции из стека
             #self.ip+=1
             arg=int(self.steck[self.sp]) 
             self.sp-=1
@@ -661,6 +697,42 @@ class Vm:
             strRef=createStringObj(arg)
             self.sp+=1
             self.steck[self.sp]=strRef
+        # ВМ создает массив беря его длину из своего стека
+        elif opcode==NEWARRAY:
+            arrLenFromStack=self.steck[self.sp]
+            self.sp-=1
+            arrRef=self.createArray(arrLenFromStack)
+            self.sp+=1
+            self.steck[self.sp]=arrRef
+        # ВМ берет со своего стека индекс для записи в обьект массив, затем значение, и в 
+        # индификатор heap записывает данные
+        elif opcode==IASTORE:
+            ## индекс для массива
+            #index=self.steck[self.sp]
+            #self.sp-=1
+            #val=self.steck[self.sp]
+            #self.sp-=1
+            ## ключ в Heap
+            #idArg=self.code[self.ip+1]
+            #print("in Vm IASTORE idArg:",idArg)
+            #self.ip+=1
+            ## работаем с нашим массивом
+            #self.heap[idArg][index]=val
+            heapKey=self.steck[self.sp-2]
+            print('in Vm:iastore heapKey->',heapKey)
+            self.heap[heapKey][int(self.steck[self.sp-1])]=self.steck[self.sp]
+            self.sp-=3 
+        # дублирование верхушки стека
+        elif opcode==DUP:
+            self.steck[self.sp+1]=self.steck[self.sp]
+            self.sp+=1
+        else:
+            raise Exception("invalid opcode:",opcode," at ip=",(self.ip))
+        print('sp:%d top:%f'%(self.sp,self.steck[self.sp])) 
+        func_vmPrintStack_SvectorKfloatKI(self.steck,10) 
+        self.ip+=1                    
+        
+            
         #elif opcode==INC:
             #v=self.steck[self.sp]
             #v+=1
@@ -723,11 +795,7 @@ class Vm:
             #else:
             #self.sp+=1
             #self.steck[self.sp]=FALSE#False         
-        else:
-             raise Exception("invalid opcode:",opcode," at ip=",(self.ip))
-        #print('sp:%d top:%f'%(self.sp,self.steck[self.sp])) 
-        func_vmPrintStack_SvectorKfloatKI(self.steck,10) 
-        self.ip+=1        
+        
 
 str_fileName=sys.argv[1]
 #str_fileName='./code_Arifm.lisp' 
@@ -741,3 +809,5 @@ vectorKintK_opCode.append(HALT)
 print(obj_LispMach)
 obj_vm=Vm(vectorKintK_opCode,trace=True)
 obj_vm.exec_(obj_LispMach.fi_int_startIp)
+# отпечатаем состояние Heap
+print('Heap: %s'%str(obj_vm.heap))

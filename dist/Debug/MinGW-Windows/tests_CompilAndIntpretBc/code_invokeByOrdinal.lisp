@@ -1,1 +1,1 @@
-($ (0) (1)(1) (invoke_by_ordinal ) (print z))
+($ (0) (1) (invoke_by_ordinal (1) ) (print z))
