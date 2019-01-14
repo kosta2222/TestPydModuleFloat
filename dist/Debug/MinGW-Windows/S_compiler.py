@@ -510,14 +510,14 @@ class Vm:
             self.trace=trace
             self.pole_float_registrThatRetFunc=0.0
             # элементы heap
-            self.heap={}
+            self.heap=[]
             self.heap_next_id=0
     def add_to_heap(self,heapObj):
       """
       Метод принимает обьект например список и добавляет в карту и возвращает ключ
       """
       ref=self.heap_next_id
-      self.heap[ref]=heapObj
+      self.heap.append(heapObj)
       self.heap_next_id+=1
       return ref
     def createArray(self,arrLen_I):
