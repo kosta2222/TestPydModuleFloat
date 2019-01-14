@@ -23,7 +23,6 @@
                         возвращае Пустое т.е V ( void ) . После буквы r ( Return ) идет возвращаемое 
                         функций / методом значение. I это всегда Int , D или F - вещественное число ,
                         Str - String.
-
 """
 #import libTestPydModuleFloat as vt
 #*****************************Compiller********************************
@@ -60,8 +59,6 @@ from struct import pack,unpack
     ALOAD,
     HALT    
 )=range(31)
-
-
 #import pdb
 #pdb.set_trace()
 import sys
@@ -375,7 +372,6 @@ def atom(token):
         try: return float(token)
         except ValueError:
             return Symbol(token)
-
 #******************Vm**********************************************
 listKstrK_opcodes=[
             ["NOOP",0]    ,
@@ -486,8 +482,6 @@ def createStringObj(strPar_S):
     """
     newStrObj=str(strPar)
     return newStrObj
-
-
     
 class Vm:
     code=[]
@@ -530,7 +524,6 @@ class Vm:
         return ref    
         
     def exec_(self,startip):
-            #self.ctx=Context(None,0,26)
             self.ip=startip
             self.cpu() 
         
@@ -682,8 +675,7 @@ class Vm:
             # берем id функции из стека
             arg=int(self.steck[self.sp]) 
             self.sp-=1
-            
-            #func_vmPrintStack_SvectorKfloatKI(self.steck,10) 
+        
             
             
             # берем количество аргументов
@@ -809,7 +801,6 @@ class Vm:
             #self.sp+=1
             #self.steck[self.sp]=FALSE#False         
         
-
 str_fileName=sys.argv[1]
 #str_fileName='./code_Arifm.lisp' 
 fileDescr=open(str_fileName,"r")
