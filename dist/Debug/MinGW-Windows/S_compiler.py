@@ -56,8 +56,10 @@ from struct import pack,unpack
     NEWARRAY,
     IASTORE,
     DUP,
+    ASTORE,
+    ALOAD,
     HALT    
-)=range(29)
+)=range(31)
 
 
 #import pdb
@@ -303,7 +305,16 @@ class LispMach:
         self.me_gen_byteCode_SIrV(IASTORE)
     elif mas_I_Or_Str[0]=='dup':
         self.me_gen_byteCode_SIrV(DUP)
-     
+    elif mas_I_Or_Str[0]=='setObj!':
+        (_,indf,arrayObj)=mas_I_Or_Str
+        self.me_recurs_evalPerList_SMrV(arrayObj)
+        self.me_gen_byteCode_SIrV(ASTORE)
+        self.me_gen_byteCode_SIrV(ord(indf)-ord("a"))
+    elif mas_I_Or_Str[0]=='getObj!': # грузит обьект-массив на стек
+        (_,indf)=mas_I_Or_Str
+        self.me_gen_byteCode_SIrV(ALOAD)
+        self.me_gen_byteCode_SIrV(ord(indf)-ord("a"))        
+        
     elif mas_I_Or_Str[0]=='pass': # ничего не делать
         self.me_gen_byteCode_SIrV(NOOP)
         
@@ -392,9 +403,11 @@ listKstrK_opcodes=[
             ["LOAD_RESULT",0],
             ["INVOKE_BY_ORDINAL",0],
             ["CREATE_STRING",0],
-            ["NEWARRAY",1],
-            ["IASTORE",0],
-            ["DUP",0],
+            ["NEWARRAY",0], # создать массив по длине
+            ["IASTORE",0],# записать число в массив
+            ["DUP",0], # дублировать вершину стека
+            ["ASTORE",0], # сохранить обьект
+            ["ALOAD",0],  # загрузить обьект(ссылку) на стек
             ["HALT",0]        
         ] 
 def func_vmPrintStack_SvectorKfloatKI(par_vectorKfloatK_stack, par_I_count) :
@@ -633,7 +646,6 @@ class Vm:
             self.ip+=1
             regnum=self.code[self.ip]
             self.pole_vectorKclassContextK_funcCont[I_callSp].locals_[regnum]=self.steck[self.sp]
-            #print(self.pole_vectorKclassContextK_funcCont[I_callSp].locals_[regnum])
             self.sp-=1 
         elif opcode==STORE_RESULT:
             self.ip+=1
@@ -668,11 +680,10 @@ class Vm:
             continue
         elif opcode==INVOKE_BY_ORDINAL: # вызов по ординалу
             # берем id функции из стека
-            #self.ip+=1
             arg=int(self.steck[self.sp]) 
             self.sp-=1
             
-            func_vmPrintStack_SvectorKfloatKI(self.steck,10) 
+            #func_vmPrintStack_SvectorKfloatKI(self.steck,10) 
             
             
             # берем количество аргументов
@@ -707,17 +718,6 @@ class Vm:
         # ВМ берет со своего стека индекс для записи в обьект массив, затем значение, и в 
         # индификатор heap записывает данные
         elif opcode==IASTORE:
-            ## индекс для массива
-            #index=self.steck[self.sp]
-            #self.sp-=1
-            #val=self.steck[self.sp]
-            #self.sp-=1
-            ## ключ в Heap
-            #idArg=self.code[self.ip+1]
-            #print("in Vm IASTORE idArg:",idArg)
-            #self.ip+=1
-            ## работаем с нашим массивом
-            #self.heap[idArg][index]=val
             heapKey=self.steck[self.sp-2]
             print('in Vm:iastore heapKey->',heapKey)
             self.heap[heapKey][int(self.steck[self.sp-1])]=self.steck[self.sp]
@@ -726,6 +726,19 @@ class Vm:
         elif opcode==DUP:
             self.steck[self.sp+1]=self.steck[self.sp]
             self.sp+=1
+        # сохраним маасив в локальной переменной
+        elif opcode==ASTORE:
+            self.ip+=1
+            varnum=self.code[self.ip]
+            self.pole_vectorKclassContextK_funcCont[I_callSp].locals_[varnum]=self.steck[self.sp]
+            self.sp-=1
+        # грузит ссылку массива на стек    
+        elif opcode==ALOAD: 
+            self.ip+=1
+            varnum=self.code[self.ip] 
+            self.sp+=1
+            self.steck[self.sp]=self.pole_vectorKclassContextK_funcCont[I_callSp].locals_[varnum]
+            
         else:
             raise Exception("invalid opcode:",opcode," at ip=",(self.ip))
         print('sp:%d top:%f'%(self.sp,self.steck[self.sp])) 
