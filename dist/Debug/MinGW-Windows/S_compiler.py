@@ -476,12 +476,7 @@ def  call_user(funcid,argc,argv):
         print("\n");
         return ret;
     
-def createStringObj(strPar_S):
-    """
-    Создать строковый обьект в Python heap и вернуть ссылку на него, чтобы положить ее на стек
-    """
-    newStrObj=str(strPar)
-    return newStrObj
+
     
 class Vm:
     code=[]
@@ -508,12 +503,19 @@ class Vm:
             self.heap_next_id=0
     def add_to_heap(self,heapObj):
       """
-      Метод принимает обьект например список и добавляет в карту и возвращает ключ
+      Метод принимает обьект например список и добавляет в список и возвращает ключ
       """
       ref=self.heap_next_id
       self.heap.append(heapObj)
       self.heap_next_id+=1
       return ref
+    def createStringObj(self,strPar_S):
+      """
+      Создать строковый обьект в Python heap и вернуть ссылку на него, чтобы положить ее на стек
+      """
+      newStrObj=str(strPar_S)
+      ref=self.add_to_heap(newStrObj)
+      return ref  
     def createArray(self,arrLen_I):
         """
         Создать массив в Python heap и вернуть ссылку на него, чтобы положить ее на стек
@@ -649,19 +651,14 @@ class Vm:
             self.sp+=1
             self.steck[self.sp]=self.pole_float_registrThatRetFunc                                
         elif opcode==CALL:
-        
             self.ip+=1
-        
             I_findex=self.code[self.ip]
-        
             self.ip+=1
             I_nargs=self.code[self.ip]
             I_callSp+=1
             classContext_curContext=self.pole_vectorKclassContextK_funcCont[I_callSp]
             classContext_curContext.returnIp=self.ip+1
-        
             I_firstarg=self.sp-I_nargs+1
-        
             for i in range(0,I_nargs):
              classContext_curContext.locals_[i]=self.steck[I_firstarg+i]
              self.sp-=I_nargs
@@ -675,13 +672,9 @@ class Vm:
             # берем id функции из стека
             arg=int(self.steck[self.sp]) 
             self.sp-=1
-        
-            
-            
             # берем количество аргументов
             argc=int(self.steck[self.sp])
             self.sp-=1
-           
             # список параметров, чтобы передать
             argv=[] 
             # заполняем список параметро
@@ -697,7 +690,7 @@ class Vm:
         elif opcode==CREATE_STRING:
             self.ip+=1
             arg=self.code[self.ip]
-            strRef=createStringObj(arg)
+            strRef=self.createStringObj(arg)
             self.sp+=1
             self.steck[self.sp]=strRef
         # ВМ создает массив беря его длину из своего стека
@@ -729,14 +722,12 @@ class Vm:
             self.ip+=1
             varnum=self.code[self.ip] 
             self.sp+=1
-            self.steck[self.sp]=self.pole_vectorKclassContextK_funcCont[I_callSp].locals_[varnum]
-            
+            self.steck[self.sp]=self.pole_vectorKclassContextK_funcCont[I_callSp].locals_[varnum]        
         else:
             raise Exception("invalid opcode:",opcode," at ip=",(self.ip))
         print('sp:%d top:%f'%(self.sp,self.steck[self.sp])) 
         func_vmPrintStack_SvectorKfloatKI(self.steck,10) 
         self.ip+=1                    
-        
             
         #elif opcode==INC:
             #v=self.steck[self.sp]
