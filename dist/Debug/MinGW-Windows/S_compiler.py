@@ -54,11 +54,12 @@ from struct import pack,unpack
     CREATE_STRING,
     NEWARRAY,
     IASTORE,
+    IALOAD,
     DUP,
     ASTORE,
     ALOAD,
     HALT    
-)=range(31)
+)=range(32)
 #import pdb
 #pdb.set_trace()
 import sys
@@ -287,27 +288,35 @@ class LispMach:
         self.me_recurs_evalPerList_SMrV(funcid)
         self.me_gen_byteCode_SIrV(INVOKE_BY_ORDINAL)
         
-    elif mas_I_Or_Str[0]=='create_string':
+    elif mas_I_Or_Str[0]=='create_string': # создаем строку 
         (_,argStr)= mas_I_Or_Str
         self.me_gen_byteCode_SIrV(CREATE_STRING)
         self.me_gen_byteCode_SIrV(argStr)
-    elif mas_I_Or_Str[0]=='newarray':
+    elif mas_I_Or_Str[0]=='newarray': # создаем массив в куче некоторой длины
         (_,arrLen)=mas_I_Or_Str
         self.me_recurs_evalPerList_SMrV(arrLen)
         self.me_gen_byteCode_SIrV(NEWARRAY)
-    elif mas_I_Or_Str[0]=='iastore':
+    elif mas_I_Or_Str[0]=='iastore': # записываем значение элемента массива
         (_,index,val)=mas_I_Or_Str
         self.me_recurs_evalPerList_SMrV(index)
         self.me_recurs_evalPerList_SMrV(val)
         self.me_gen_byteCode_SIrV(IASTORE)
-    elif mas_I_Or_Str[0]=='dup':
+    elif mas_I_Or_Str[0]=='iaload': # грузит значение элемента из массива 
+        self.me_gen_byteCode_SIrV(IALOAD)
+    elif mas_I_Or_Str[0]=='dup': # дублируем вершину стека
         self.me_gen_byteCode_SIrV(DUP)
     elif mas_I_Or_Str[0]=='setObj!':
+        """
+        setObj! выражает ASTORE байт-код, который сохраняет обьект(массив например) в переменную
+        """
         (_,indf,arrayObj)=mas_I_Or_Str
         self.me_recurs_evalPerList_SMrV(arrayObj)
         self.me_gen_byteCode_SIrV(ASTORE)
         self.me_gen_byteCode_SIrV(ord(indf)-ord("a"))
     elif mas_I_Or_Str[0]=='getObj!': # грузит обьект-массив на стек
+        """
+        getObj! выражает ALOAD байт-код, который грузит ссылку обьекта(массив например) на стек
+        """
         (_,indf)=mas_I_Or_Str
         self.me_gen_byteCode_SIrV(ALOAD)
         self.me_gen_byteCode_SIrV(ord(indf)-ord("a"))        
@@ -315,7 +324,7 @@ class LispMach:
     elif mas_I_Or_Str[0]=='pass': # ничего не делать
         self.me_gen_byteCode_SIrV(NOOP)
         
-    else:
+    else: # ошибка компиляции
         raise Exception("Unknown keyword %s"%mas_I_Or_Str[0])
             
    
@@ -373,6 +382,9 @@ def atom(token):
         except ValueError:
             return Symbol(token)
 #******************Vm**********************************************
+"""
+Информация о байт-кодов для трассы
+"""
 listKstrK_opcodes=[
             ["NOOP",0]    ,
             ["IADD",0]    ,
@@ -400,13 +412,17 @@ listKstrK_opcodes=[
             ["INVOKE_BY_ORDINAL",0],
             ["CREATE_STRING",0],
             ["NEWARRAY",0], # создать массив по длине
-            ["IASTORE",0],# записать число в массив
-            ["DUP",0], # дублировать вершину стека
-            ["ASTORE",0], # сохранить обьект
-            ["ALOAD",0],  # загрузить обьект(ссылку) на стек
+            ["IASTORE",0],  # записать число в массив
+            ["IASTORE",0],  # загрузить целое из массива целых
+            ["DUP",0],      # дублировать вершину стека
+            ["ASTORE",0],   # сохранить обьект
+            ["ALOAD",0],    # загрузить обьект(ссылку) на стек
             ["HALT",0]        
         ] 
 def func_vmPrintStack_SvectorKfloatKI(par_vectorKfloatK_stack, par_I_count) :
+            """
+            Отпечатываем стек
+            """
             print("stack=[");
             for  i in range(0,par_I_count):
              print(" {0}".format(par_vectorKfloatK_stack[i]));
@@ -415,6 +431,9 @@ def func_vmPrintStack_SvectorKfloatKI(par_vectorKfloatK_stack, par_I_count) :
         
         
 def func_vmPrintInstr_SvectorKintKIrV(vectorKintK_opCode, int_ip) :
+            """
+            Отпечатывает байт-код с аргументами для трассы
+            """
             int_opcode =vectorKintK_opCode[int_ip];
             listKstrYintK_instr = listKstrK_opcodes[int_opcode];
             int_nargs=listKstrYintK_instr[1]
@@ -436,6 +455,9 @@ def func_vmPrintInstr_SvectorKintKIrV(vectorKintK_opCode, int_ip) :
              print("%d:  %s %d %d %d\n"%(int_ip, listKstrYintK_instr[0],vectorKintK_opCode[int_ip+1],vectorKintK_opCode[int_ip+2],vectorKintK_opCode[int_ip+3] ))
         
 class Context:
+            """
+            Контекст(как фрейм) для функций
+            """
             classIvokingContext_invokingContext=None
             metadata=None
             returnIp=0
@@ -534,34 +556,34 @@ class Vm:
      I_callSp=-1
         
      while (self.ip<len(self.code) and opcode!=HALT):
-        opcode=self.code[self.ip] #fetch 
+        opcode=self.code[self.ip] # выборка байт-кода 
         
-        if self.trace:
+        if self.trace: # вывод трассы если нужно
             print("number opcode:",opcode)
             func_vmPrintInstr_SvectorKintKIrV(self.code,self.ip)
             
-        if (opcode==ICONST):#switch
+        if (opcode==ICONST):# декодируем
             self.sp+=1
             bytearray_bAr=bytearray([self.code[self.ip+1],self.code[self.ip+2],self.code[self.ip+3],self.code[self.ip+4]])
             self.steck[self.sp]=unpack('>f',bytearray_bAr)[0]
             self.ip+=4
-        elif opcode==GSTORE:
+        elif opcode==GSTORE:# работаем с глобальными переменными - сохраням их
             v=self.steck[self.sp]
             self.sp-=1
             self.ip+=1
             addr=self.code[self.ip]
             self.globals_[addr]=v 
         
-        elif opcode==GLOAD:
+        elif opcode==GLOAD:# работаем с глобальными переменными - грузим их
             self.ip+=1
             addr=self.code[self.ip]
             v=self.globals_[addr]
             self.sp+=1
             self.steck[self.sp]=v 
-        elif opcode==NOOP:
+        elif opcode==NOOP: # ничего не делаем
             pass
         
-        elif opcode==HALT:
+        elif opcode==HALT: # остановка ВМ
             break
         elif opcode==BR:
             self.ip+=1
@@ -704,20 +726,34 @@ class Vm:
         # индификатор heap записывает данные
         elif opcode==IASTORE:
             heapKey=self.steck[self.sp-2]
-            print('in Vm:iastore heapKey->',heapKey)
+            print('in Vm:iastore heapKey ->',heapKey)
             self.heap[heapKey][int(self.steck[self.sp-1])]=self.steck[self.sp]
+            
             self.sp-=3 
+        elif opcode==IALOAD:
+            # arrayref в стеке - обеспечивается текстом программы getObject!
+            heapKey=self.steck[self.sp-1]
+            # берем нужный индекс со стека - обеспечивается тем что после getObject! ложится число как нужный индекс
+            needIndex=self.steck[self.sp]
+            
+            # на место arrayref в стеке записываем элемент-значение массива из кучи
+            self.steck[int(self.sp-1)]=self.heap[int(heapKey)][int(needIndex)]
+            
+            print('in Vm:iaload value from array ->',self.steck[self.sp-1])
+            
+            self.sp-=1
+            
         # дублирование верхушки стека
         elif opcode==DUP:
             self.steck[self.sp+1]=self.steck[self.sp]
             self.sp+=1
-        # сохраним маасив в локальной переменной
+        # сохраним обьект(например массив) в локальной переменной
         elif opcode==ASTORE:
             self.ip+=1
             varnum=self.code[self.ip]
             self.pole_vectorKclassContextK_funcCont[I_callSp].locals_[varnum]=self.steck[self.sp]
             self.sp-=1
-        # грузит ссылку массива на стек    
+        # грузит ссылку обьекта(например массива) на стек    
         elif opcode==ALOAD: 
             self.ip+=1
             varnum=self.code[self.ip] 
