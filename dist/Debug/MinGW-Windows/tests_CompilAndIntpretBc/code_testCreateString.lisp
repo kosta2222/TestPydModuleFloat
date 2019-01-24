@@ -1,1 +1,1 @@
-($ (set! c (create_string I_am_Muslim)) (print c) (set! r (create_string Yes_It_is)) (print r) )
+($ (set! c (create_string I_am_Muhamedjanov)) (print c) (set! r (create_string Yes_It_is)) (print r) )
