@@ -585,24 +585,24 @@ class Vm:
         
         elif opcode==HALT: # остановка ВМ
             break
-        elif opcode==BR:
+        elif opcode==BR: # безусловный переход
             self.ip+=1
             self.ip=self.code[self.ip]
             continue
         elif opcode==BRT:
             self.ip+=1
             addr=self.code[self.ip]
-            if self.steck[self.sp]==TRUE:
+            if self.steck[self.sp]==1: # если True
               self.ip=addr
             self.sp-=1 
             continue  
         elif opcode==BRF:
             self.ip+=1
             addr=self.code[self.ip]
-            if self.steck[self.sp]==FALSE:
+            if self.steck[self.sp]==0: # если False
               self.ip=addr
             self.sp-=1 
-            continue
+            #continue
         elif opcode==IADD:
             b=self.steck[self.sp]
             self.sp-=1
@@ -631,17 +631,28 @@ class Vm:
             self.sp-=1
             self.sp+=1
             self.steck[self.sp]=a/b  
-            #elif opcode==LES:
-            #b=self.steck[self.sp]
-            #self.sp-=1
-            #a=self.steck[self.sp]
-            #self.sp-=1
-            #if a<b:
-            #self.sp+=1 
-            #self.steck[self.sp]=TRUE#True 
-            #else:
-            #self.sp+=1
-            #self.steck[self.sp]=FALSE#False 
+        elif opcode==ILT:
+            b=self.steck[self.sp]
+            self.sp-=1
+            a=self.steck[self.sp]
+            self.sp-=1
+            if a<b:
+              self.sp+=1 
+              self.steck[self.sp]=1#True 
+            else:
+             self.sp+=1
+             self.steck[self.sp]=0#False 
+        elif opcode==IEQ:
+            b=self.steck[self.sp]
+            self.sp-=1
+            a=self.steck[self.sp]
+            self.sp-=1
+            if a==b:
+              self.sp+=1 
+              self.steck[self.sp]=1#True 
+            else:
+             self.sp+=1
+             self.steck[self.sp]=0#False              
         elif opcode==PRINT:   
             self.ip+=1
             int_chisloIzLocalnihKakParametr=self.code[self.ip]
@@ -652,13 +663,8 @@ class Vm:
         elif opcode==LOAD:
             self.ip+=1
             regnum=self.code[self.ip]
-            print("Load regnum",regnum,type(regnum))
             self.sp+=1
-            print("Load I_callSp",I_callSp,type(I_callSp))
-            print("self.pole_vectorKclassContextK_funcCont[I_callSp]",self.pole_vectorKclassContextK_funcCont[I_callSp])
-            print("len(self.pole_vectorKclassContextK_funcCont[I_callSp].locals_)",len(self.pole_vectorKclassContextK_funcCont[I_callSp].locals_))
-            self.steck[self.sp]=self.pole_vectorKclassContextK_funcCont[I_callSp].locals_[regnum]
-            print("Load I_callSp",I_callSp,type(I_callSp)) 
+            self.steck[self.sp]=self.pole_vectorKclassContextK_funcCont[I_callSp].locals_[regnum] 
         elif opcode==STORE:
             self.ip+=1
             regnum=self.code[self.ip]
