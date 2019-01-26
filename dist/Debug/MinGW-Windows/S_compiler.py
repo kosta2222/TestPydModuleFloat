@@ -125,7 +125,7 @@ def floatToBytes_SfloatRbytes(float_val):
     """
         запаковать число как набор байт
     """    
-    return pack('>f',float_val)
+    return pack('<f',float_val)
 class LispMach:
  """
        Компилятор

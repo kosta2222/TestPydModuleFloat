@@ -269,6 +269,7 @@ vm_exec (VM *vm, int startip, bool trace, int returnPrintOpFromLocals_flag)
            * -для return pack('>f',float_val) - big endian
            0000: ICONST 0.000000stack=[ 0.000000 ]
            0002:                      invalid opcode: 128 at ip=2
+           * Пробовал также форматирующие строки такие: @ и = - также
            *
            */
           break;
