@@ -257,11 +257,20 @@ vm_exec (VM *vm, int startip, bool trace, int returnPrintOpFromLocals_flag)
           if (vm->stack[sp--] == false) ip = addr;
           break;
         case ICONST:
-          // Правильно я сделал?)
-          float *pFloatValForICONST=(float*) &(vm->code[ip++]);
-          // \todo понять как на стек положить.
-          // компилятор => error: incompatible types when assigning to type 'float' from type 'float *'
-          // vm->stack[++sp] = ?
+          // только так скомпилировалось
+          vm->stack[++sp] = *((float*) &(vm->code[ip++]));
+          /*
+           * Такой вывод при запаковке float return pack('<f',float_val) - little endian,
+           * для программы:
+           0000: ICONST 1.000000stack=[ 1.000000 ]
+           0002:  noop                stack=[ 1.000000 ]
+           0003:                      invalid opcode: 128 at ip=3
+           *
+           * -для return pack('>f',float_val) - big endian
+           0000: ICONST 0.000000stack=[ 0.000000 ]
+           0002:                      invalid opcode: 128 at ip=2
+           *
+           */
           break;
         case LOAD:
           offset = vm->code[ip++];
@@ -396,7 +405,7 @@ vm_print_instr (unsigned char *code, int ip)
       if (opcode == ICONST)
         {
 
-          printf ("%04d: ICONST %f", ip, (float) unpack754_32 ((u4) (code[ip + 1 ] << 24) | (u4) (code[ip + 2] << 16) | (u4) (code[ip + 3] << 8) | (u4) (code[ip + 4])));
+          printf ("%04d: ICONST %f", ip, *((float*) &(code[ip + 1])));
         }
       else
         {
