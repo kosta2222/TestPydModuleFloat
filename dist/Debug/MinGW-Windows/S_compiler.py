@@ -23,6 +23,10 @@
                         возвращае Пустое т.е V ( void ) . После буквы r ( Return ) идет возвращаемое 
                         функций / методом значение. I это всегда Int , D или F - вещественное число ,
                         Str - String.
+                          Замечание о системе.
+                          При опкоде RET восстанавливается ip и затирается индекс callsp.
+                          Можно состояние стека сохранить в регистр и когда например в арифметическом выражении встречается
+                          буква z, это означает команду ВМ загрузить на стек регистр для возращающего значения.
 """
 #import libTestPydModuleFloat as vt
 #*****************************Compiller********************************
@@ -594,15 +598,15 @@ class Vm:
             addr=self.code[self.ip]
             if self.steck[self.sp]==1: # если True
               self.ip=addr
-            self.sp-=1 
-            continue  
+              self.sp-=1 
+              continue  
         elif opcode==BRF:
             self.ip+=1
             addr=self.code[self.ip]
             if self.steck[self.sp]==0: # если False
               self.ip=addr
-            self.sp-=1 
-            #continue
+              self.sp-=1 
+              continue
         elif opcode==IADD:
             b=self.steck[self.sp]
             self.sp-=1
