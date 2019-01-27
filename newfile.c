@@ -131,15 +131,15 @@ vm_exec (VM *vm, int startip, bool trace, int returnPrintOpFromLocals_flag)
   /**
   следующая операция
    */
-/*
-#define NEXTOP() vm->code[ip]
-*/
+  /*
+  #define NEXTOP() vm->code[ip]
+   */
   /**
   следующий аргумент как 'собирание' 4х байтов
    */
-/*
-#define NEXTARGASI4() (ip+=4 ,(u4) ( (u4) (vm-> code[ip-4]<<24 ) | (u4) ( vm->code[ip-3]<<16 ) | (u4) (vm-> code[ip-2]<<8 ) | (u4) (vm-> code[ip-1] ) ) )
-*/
+  /*
+  #define NEXTARGASI4() (ip+=4 ,(u4) ( (u4) (vm-> code[ip-4]<<24 ) | (u4) ( vm->code[ip-3]<<16 ) | (u4) (vm-> code[ip-2]<<8 ) | (u4) (vm-> code[ip-1] ) ) )
+   */
   u4 opcode = vm->code[ip];
   while (opcode != HALT)
     {
