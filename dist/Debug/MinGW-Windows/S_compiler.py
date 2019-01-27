@@ -175,11 +175,8 @@ class LispMach:
         self.me_gen_byteCode_SIrV(STORE)
         int_ordLocToStore=ord(var)-ord("a") # определим индекс буквы
         self.me_gen_byteCode_SIrV(int_ordLocToStore)
-    elif mas_I_Or_Str[0] == 'setResult!':  # сохранить из регистра возврата функций в некоторую переменную 
-        (_, var) = mas_I_Or_Str
-        self.me_gen_byteCode_SIrV(STORE_RESULT)
-        int_ordLocToStoreRegistr=ord(var)-ord("a")
-        self.me_gen_byteCode_SIrV(int_ordLocToStoreRegistr)               
+    elif mas_I_Or_Str[0] == 'setResult!':  # сохранить с вершины стека в регистр 
+        self.me_gen_byteCode_SIrV(STORE_RESULT)         
     elif mas_I_Or_Str[0] == 'defun': #определить функцию          
         (_,str_nameFunc, list_arg,list_expr) = mas_I_Or_Str
         if str_nameFunc=='main':
@@ -411,7 +408,7 @@ listKstrK_opcodes=[
             ["POP",0]     ,  
             ["CALL",2]    ,  
             ["RET",0]     ,  
-            ["STORE_RESULT",1],
+            ["STORE_RESULT",0],
             ["LOAD_RESULT",0],
             ["INVOKE_BY_ORDINAL",0],
             ["CREATE_STRING",0],
@@ -446,7 +443,7 @@ def func_vmPrintInstr_SvectorKintKIrV(vectorKintK_opCode, int_ip) :
              print("%d:  %s\n"%( int_ip,listKstrYintK_instr[0] ));
         
             elif (int_nargs==1 and int_opcode!=ICONST) :
-             print("%d:  %s %f\n" %(int_ip, listKstrYintK_instr[0],vectorKintK_opCode[int_ip+1]) )
+             print("%d:  %s %d\n" %(int_ip, listKstrYintK_instr[0],vectorKintK_opCode[int_ip+1]) )
             elif (int_nargs==1 and int_opcode==ICONST):
              bytearray_bAr=bytearray([vectorKintK_opCode[int_ip+1],vectorKintK_opCode[int_ip+2],vectorKintK_opCode[int_ip+3],vectorKintK_opCode[int_ip+4]])
              print("ICONST",unpack('>f',bytearray_bAr)[0])       
@@ -674,12 +671,10 @@ class Vm:
             regnum=self.code[self.ip]
             self.pole_vectorKclassContextK_funcCont[I_callSp].locals_[regnum]=self.steck[self.sp]
             self.sp-=1 
-        elif opcode==STORE_RESULT:
-            self.ip+=1
-            regnum=self.code[self.ip]
-            self.pole_float_registrThatRetFunc=self.pole_vectorKclassContextK_funcCont[I_callSp].locals_[regnum]
+        elif opcode==STORE_RESULT: # сохраняем с вершины стека в регистр
+            self.pole_float_registrThatRetFunc=self.steck[self.sp]
             self.sp-=1   
-        elif opcode==LOAD_RESULT:
+        elif opcode==LOAD_RESULT: # сохранить с регистра в стек, буква z будет
             self.sp+=1
             self.steck[self.sp]=self.pole_float_registrThatRetFunc                                
         elif opcode==CALL:
@@ -695,7 +690,7 @@ class Vm:
              classContext_curContext.locals_[i]=self.steck[I_firstarg+i]
              self.sp-=I_nargs
              self.ip=I_findex
-             continue
+            continue
         elif opcode==RET:
             self.ip=self.pole_vectorKclassContextK_funcCont[I_callSp].returnIp
             I_callSp-=1
