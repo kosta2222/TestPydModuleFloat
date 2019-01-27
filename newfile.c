@@ -1,58 +1,4 @@
 #include "vm.h"
-/**
-Распаковать как C float
- */
-#define unpack754_32(i) (unpack754((i),32,8))
-/**
-Распаковать как С double
- */
-#define unpack754_64(i) (unpack754((i),64,11))
-
-/**
-Распаковать как вещественное число
-\param[in] i float число как целое
-\param[in] bits мантисса
-\param[in] expbits експонента
-\return распакованное вещественное число
- */
-
-long double
-unpack754 (uint64_t i, unsigned bits, unsigned expbits)
-{
-  long double result;
-  long long shift;
-  unsigned bias;
-  unsigned significandbits = bits - expbits - 1; // -1 для бита знака
-  // вычисляем биты от мантиссы,значимые биты,для 32val M_biti=23,для
-  //64val это M_biti=52
-
-  if (i == 0) return 0.0;
-
-  // устанавливаем "знаковость"
-  result = (i & ((1LL << significandbits) - 1)); // маска
-
-  result /= (1LL << significandbits); // Конвертируем обратно во float
-  result += 1.0f; // прибавляем обратно
-  // разбираемся с экспонентой
-  bias = (1 << (expbits - 1)) - 1;
-  shift = ((i >> significandbits)&((1LL << expbits) - 1)) - bias;
-  while (shift > 0)
-    {
-      result *= 2.0;
-      shift--;
-    }
-  while (shift < 0)
-    {
-      result /= 2.0;
-      shift++;
-    }
-  // получаем результат
-  result *= (i >> (bits - 1))&1 ? -1.0 : 1.0;
-
-  return result;
-
-
-}
 
 /** вызвать пользовательскую функцию
  \param [in] funcid индификатор функции
@@ -185,11 +131,15 @@ vm_exec (VM *vm, int startip, bool trace, int returnPrintOpFromLocals_flag)
   /**
   следующая операция
    */
+/*
 #define NEXTOP() vm->code[ip]
+*/
   /**
   следующий аргумент как 'собирание' 4х байтов
    */
+/*
 #define NEXTARGASI4() (ip+=4 ,(u4) ( (u4) (vm-> code[ip-4]<<24 ) | (u4) ( vm->code[ip-3]<<16 ) | (u4) (vm-> code[ip-2]<<8 ) | (u4) (vm-> code[ip-1] ) ) )
+*/
   u4 opcode = vm->code[ip];
   while (opcode != HALT)
     {
@@ -249,43 +199,18 @@ vm_exec (VM *vm, int startip, bool trace, int returnPrintOpFromLocals_flag)
           ip = vm->code[ip];
           break;
         case BRT:
-          addr = vm->code[ip++];
+          addr = vm->code[ip];
           if (vm->stack[sp--] == true) ip = addr;
           break;
         case BRF:
-          addr = vm->code[ip++];
+          addr = vm->code[ip];
           if (vm->stack[sp--] == false) ip = addr;
           break;
         case ICONST:
           {
-            // только так скомпилировалось
+            vm->stack[++sp] = *((float*) &(vm->code[ip]));
 
-
-                      vm->stack[++sp] = *((float*) &((u4) ((u4) (vm-> code[ip] << 24) | (u4) (vm->code[ip + 1] << 16) | (u4) (vm-> code[ip + 2] << 8) | (u4) (vm-> code[ip + 3]))));
-            /*
-             * Такой вывод при запаковке float return pack('<f',float_val) - little endian,
-             * для программы:
-             0000: ICONST 1.000000stack=[ 1.000000 ]
-             0002:  noop                stack=[ 1.000000 ]
-             0003:                      invalid opcode: 128 at ip=3
-             *
-             * -для return pack('>f',float_val) - big endian
-             0000: ICONST 0.000000stack=[ 0.000000 ]
-             0002:                      invalid opcode: 128 at ip=2
-             * Пробовал также форматирующие строки такие: @ и = - также
-             *
-             */
-            // возьмем каждый из четырех байт, чтобы их потом соеденить и преобразовать во float
-/*
-            u4 firstVal = (u4) (vm-> code[ip] << 24);
-            u4 secondVal = (u4) (vm-> code[ip + 1] << 16);
-            u4 thirdVal = (u4) (vm-> code[ip + 2] << 8);
-            u4 forthVal = (u4) (vm-> code[ip + 3]);
-
-            u4 commonVal = firstVal | secondVal | thirdVal | forthVal;
-            printf ("In Vm in ICONST branch->%d", commonVal);
-            ip += 4;
-*/          ip+=3;
+            ip += 3;
             ip++;
             break;
           }
