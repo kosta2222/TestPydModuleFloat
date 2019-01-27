@@ -257,22 +257,38 @@ vm_exec (VM *vm, int startip, bool trace, int returnPrintOpFromLocals_flag)
           if (vm->stack[sp--] == false) ip = addr;
           break;
         case ICONST:
-          // только так скомпилировалось
-          vm->stack[++sp] = *((float*) &(vm->code[ip++]));
-          /*
-           * Такой вывод при запаковке float return pack('<f',float_val) - little endian,
-           * для программы:
-           0000: ICONST 1.000000stack=[ 1.000000 ]
-           0002:  noop                stack=[ 1.000000 ]
-           0003:                      invalid opcode: 128 at ip=3
-           *
-           * -для return pack('>f',float_val) - big endian
-           0000: ICONST 0.000000stack=[ 0.000000 ]
-           0002:                      invalid opcode: 128 at ip=2
-           * Пробовал также форматирующие строки такие: @ и = - также
-           *
-           */
-          break;
+          {
+            // только так скомпилировалось
+
+
+                      vm->stack[++sp] = *((float*) &((u4) ((u4) (vm-> code[ip] << 24) | (u4) (vm->code[ip + 1] << 16) | (u4) (vm-> code[ip + 2] << 8) | (u4) (vm-> code[ip + 3]))));
+            /*
+             * Такой вывод при запаковке float return pack('<f',float_val) - little endian,
+             * для программы:
+             0000: ICONST 1.000000stack=[ 1.000000 ]
+             0002:  noop                stack=[ 1.000000 ]
+             0003:                      invalid opcode: 128 at ip=3
+             *
+             * -для return pack('>f',float_val) - big endian
+             0000: ICONST 0.000000stack=[ 0.000000 ]
+             0002:                      invalid opcode: 128 at ip=2
+             * Пробовал также форматирующие строки такие: @ и = - также
+             *
+             */
+            // возьмем каждый из четырех байт, чтобы их потом соеденить и преобразовать во float
+/*
+            u4 firstVal = (u4) (vm-> code[ip] << 24);
+            u4 secondVal = (u4) (vm-> code[ip + 1] << 16);
+            u4 thirdVal = (u4) (vm-> code[ip + 2] << 8);
+            u4 forthVal = (u4) (vm-> code[ip + 3]);
+
+            u4 commonVal = firstVal | secondVal | thirdVal | forthVal;
+            printf ("In Vm in ICONST branch->%d", commonVal);
+            ip += 4;
+*/          ip+=3;
+            ip++;
+            break;
+          }
         case LOAD:
           offset = vm->code[ip++];
           vm->stack[++sp] = vm->call_stack[callsp].locals[offset];
